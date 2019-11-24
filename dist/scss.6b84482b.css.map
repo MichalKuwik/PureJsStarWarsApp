@@ -1,0 +1,1 @@
+{"version":3,"sources":["scss\\index.scss","scss\\_variables.scss"],"names":[],"mappings":"AAEA;EACE,YCFQ","file":"scss.6b84482b.css","sourceRoot":"..\\src","sourcesContent":["@import './variables';\r\n\r\nbody{\r\n  background: $bg_color;\r\n}","//varaibles\r\n$bg_color:#000;\r\n$white_color:#fff;\r\n"]}
