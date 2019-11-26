@@ -1,0 +1,85 @@
+.header{
+  display: flex;
+  justify-content: space-around;
+  width:100vw;
+  height: 30vh;
+  & .planet-wrapper{
+    position: relative;
+    width:30%;
+    height: 100%;
+    & .planet{
+      position: absolute;
+      width:300px;
+      height: 300px;
+      top:5%;
+      left:20%;
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    & .ship1{
+      position: absolute;
+      top:100%;
+      right:0;
+      width:100px;
+      height: 80px;
+      transform: rotate(45deg);
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    & .ship2{
+      position: absolute;
+      top:50%;
+      right:85%;
+      width:70px;
+      height: 50px;
+      transform: rotate(-15deg);
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    & .ship3{
+      position: absolute;
+      top:10%;
+      right:20%;
+      width:60px;
+      height: 50px;
+      transform: rotate(25deg);
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+  }
+  & .header-wrapper{
+    position: relative;
+    top:10%;
+    width:60%;
+    & .header-desc{
+      width:80%;
+      height: 80%;
+      z-index: 9999;
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    & .robot{
+      position: absolute;
+      right: 16%;
+      top:15%;
+      width:70px;
+      height: 120px;
+      transform: rotate(65deg);
+      z-index: -999;
+      & img{
+        width:100%;
+        height: 100%;
+      }
+    }
+  }
+}

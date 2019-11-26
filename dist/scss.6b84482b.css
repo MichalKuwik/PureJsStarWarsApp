@@ -1,5 +1,92 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  height: 30vh;
+}
+.header .planet-wrapper {
+  position: relative;
+  width: 30%;
+  height: 100%;
+}
+.header .planet-wrapper .planet {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 5%;
+  left: 20%;
+}
+.header .planet-wrapper .planet img {
+  width: 100%;
+  height: 100%;
+}
+.header .planet-wrapper .ship1 {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100px;
+  height: 80px;
+  transform: rotate(45deg);
+}
+.header .planet-wrapper .ship1 img {
+  width: 100%;
+  height: 100%;
+}
+.header .planet-wrapper .ship2 {
+  position: absolute;
+  top: 50%;
+  right: 85%;
+  width: 70px;
+  height: 50px;
+  transform: rotate(-15deg);
+}
+.header .planet-wrapper .ship2 img {
+  width: 100%;
+  height: 100%;
+}
+.header .planet-wrapper .ship3 {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 60px;
+  height: 50px;
+  transform: rotate(25deg);
+}
+.header .planet-wrapper .ship3 img {
+  width: 100%;
+  height: 100%;
+}
+.header .header-wrapper {
+  position: relative;
+  top: 10%;
+  width: 60%;
+}
+.header .header-wrapper .header-desc {
+  width: 80%;
+  height: 80%;
+  z-index: 9999;
+}
+.header .header-wrapper .header-desc img {
+  width: 100%;
+  height: 100%;
+}
+.header .header-wrapper .robot {
+  position: absolute;
+  right: 16%;
+  top: 15%;
+  width: 70px;
+  height: 120px;
+  transform: rotate(65deg);
+  z-index: -999;
+}
+.header .header-wrapper .robot img {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: #000;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=/scss.6b84482b.css.map */

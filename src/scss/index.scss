@@ -1,5 +1,7 @@
 @import './variables';
+@import './header';
 
 body{
   background: $bg_color;
+  overflow: hidden;
 }
