@@ -1,6 +1,10 @@
+@import './config';
+
 .header{
+  margin-top:4rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   width:100vw;
   height: 30vh;
   & .planet-wrapper{
@@ -9,8 +13,8 @@
     height: 100%;
     & .planet{
       position: absolute;
-      width:300px;
-      height: 300px;
+      width:250px;
+      height: 250px;
       top:5%;
       left:20%;
       & img{
@@ -20,10 +24,10 @@
     }
     & .ship1{
       position: absolute;
-      top:100%;
-      right:0;
-      width:100px;
-      height: 80px;
+      top:80%;
+      right:20%;
+      width:90px;
+      height: 70px;
       transform: rotate(45deg);
       & img{
         width:100%;
@@ -57,8 +61,7 @@
   }
   & .header-wrapper{
     position: relative;
-    top:10%;
-    width:60%;
+    width:50%;
     & .header-desc{
       width:80%;
       height: 80%;
@@ -71,7 +74,7 @@
     & .robot{
       position: absolute;
       right: 16%;
-      top:15%;
+      top:20%;
       width:70px;
       height: 120px;
       transform: rotate(65deg);
@@ -83,3 +86,5 @@
     }
   }
 }
+
+@import './header_mobile';
