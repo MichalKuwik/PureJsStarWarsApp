@@ -1,7 +1,9 @@
 @import './variables';
 @import './header';
+@import './_section_search';
 
 body{
   background: $bg_color;
   overflow: hidden;
+  font-family: 'Poppins';
 }
