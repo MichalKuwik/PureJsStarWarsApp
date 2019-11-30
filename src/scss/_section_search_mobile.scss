@@ -1,0 +1,18 @@
+
+@include mediaSm{
+  .search{
+    & .input-wrapper{
+         width:90%;
+       }
+     }
+}
+
+@include mediaMd{
+  .search{
+   & .input-wrapper{
+        width:80%;
+      }
+    }
+  }
+
+
