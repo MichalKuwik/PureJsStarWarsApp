@@ -1,5 +1,7 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 .header {
   margin-top: 4rem;
   display: flex;
@@ -180,6 +182,8 @@
 .search {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 5rem;
 }
 .search .input-wrapper {
@@ -229,6 +233,38 @@
   height: 2px;
   background-color: #e4b201;
   transition: 0.4s;
+}
+.search .select-div {
+  margin-top: 3rem;
+  position: relative;
+  z-index: 999;
+}
+.search .select-div #search {
+  background: none;
+  color: #ccc;
+  padding-bottom: 2px;
+  width: 150px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 300;
+  outline: none;
+}
+.search .select-div::before {
+  position: absolute;
+  content: "";
+  font-family: FontAwesome;
+  top: -25%;
+  right: -5%;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 45px;
+  color: #ccc;
+  z-index: -999;
 }
 
 @media screen and (max-width: 760px) {

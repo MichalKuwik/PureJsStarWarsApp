@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="https://friconix.com/cdn/friconix.js"></script>
   <link rel="stylesheet" href="./scss/index.scss">
   <title>Starwars-app</title>
 </head>
@@ -46,6 +47,18 @@
         <label>wpisz nazwę</label>
         <span class="focus-border"></span>
     </div>
+
+    <div class="select-div">
+      <select id="search">
+        <option value="hide">wybierz...</option>
+        <option value="postacie">Postacie</option>
+        <option value="filmy">Filmy</option>
+        <option value="planety">Planety</option>
+        <option value="pojazdy">Pojazdy</option>
+    </select>
+  </div>
+  <button type="submit">wyślij</button>
+
   </section>
 
   <script src="js/index.js"></script>
