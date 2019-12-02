@@ -11,7 +11,7 @@
   margin-top:5rem;
   & .input-wrapper{
     position: relative;
-    width:30%;
+    width:50%;
     & label{
       color:#fff;
     }
@@ -62,11 +62,12 @@
   & .select-div{
     margin-top:3rem;
     position: relative;
+    left:-5%;
     z-index: 999;
     & #search{
       background:none;
       color: $grey_color;
-      padding-bottom: 2px;
+      padding-bottom: 0px;
       width: 150px;
       border: none;
       border-bottom:2px solid $grey_color;
@@ -79,7 +80,7 @@
       position: absolute;
       content: "\f078";
       font-family: FontAwesome;
-      top: -25%;
+      top: -30%;
       right: -5%;
       width: 20%;
       height: 100%;
@@ -90,6 +91,24 @@
       color:$grey_color;
       z-index: -999;
     }
+    & button{
+      position: absolute;
+      top:-20%;
+      left:120%;
+      padding:5px 10px;
+      border:2px solid $yellow_color;
+      font-size:1.5rem;
+      background: none;
+      color:$yellow_color;
+      font-weight: 300;
+      font-family: 'Poppins';
+      @include trans;
+      &:hover{
+        background: $yellow_color;
+        color:$bg_color;
+      }
+    }
   }
+  
 }
 @import './section_search_mobile';
