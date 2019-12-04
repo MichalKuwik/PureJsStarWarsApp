@@ -186,14 +186,21 @@
   align-items: center;
   margin-top: 5rem;
 }
-.search .input-wrapper {
+.search form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search form .input-wrapper {
   position: relative;
   width: 50%;
 }
-.search .input-wrapper label {
+.search form .input-wrapper label {
   color: #fff;
 }
-.search .input-wrapper .input {
+.search form .input-wrapper .input {
   width: 100%;
   border: 0;
   padding: 4px 0;
@@ -202,18 +209,18 @@
   background-color: transparent;
   color: #fff;
 }
-.search .input-wrapper .input:focus ~ .focus-border {
+.search form .input-wrapper .input:focus ~ .focus-border {
   width: 100%;
   transition: 0.4s;
   left: 0;
 }
-.search .input-wrapper .input:focus ~ label, .search .input-wrapper .input ~ label {
+.search form .input-wrapper .input:focus ~ label, .search form .input-wrapper .input ~ label {
   top: -16px;
   font-size: 12px;
   color: #e4b201;
   transition: 0.3s;
 }
-.search .input-wrapper .input ~ label {
+.search form .input-wrapper .input ~ label {
   position: absolute;
   left: 0;
   width: 100%;
@@ -225,7 +232,7 @@
   z-index: -1;
   letter-spacing: 0.5px;
 }
-.search .input-wrapper .input ~ .focus-border {
+.search form .input-wrapper .input ~ .focus-border {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -234,13 +241,13 @@
   background-color: #e4b201;
   transition: 0.4s;
 }
-.search .select-div {
+.search form .select-div {
   margin-top: 3rem;
   position: relative;
   left: -5%;
   z-index: 999;
 }
-.search .select-div #search {
+.search form .select-div #search {
   background: none;
   color: #ccc;
   padding-bottom: 0px;
@@ -252,7 +259,7 @@
   font-weight: 300;
   outline: none;
 }
-.search .select-div::before {
+.search form .select-div::before {
   position: absolute;
   content: "";
   font-family: FontAwesome;
@@ -267,7 +274,7 @@
   color: #ccc;
   z-index: -999;
 }
-.search .select-div button {
+.search form .select-div button {
   position: absolute;
   top: -20%;
   left: 120%;
@@ -280,7 +287,7 @@
   font-family: "Poppins";
   transition: all 0.3s ease-in;
 }
-.search .select-div button:hover {
+.search form .select-div button:hover {
   background: #e4b201;
   color: #000;
 }

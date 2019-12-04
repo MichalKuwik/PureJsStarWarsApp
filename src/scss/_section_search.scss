@@ -9,106 +9,114 @@
   flex-direction: column;
   align-items: center;
   margin-top:5rem;
-  & .input-wrapper{
-    position: relative;
-    width:50%;
-    & label{
-      color:#fff;
+  & form{
+    width:60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .input-wrapper{
+      position: relative;
+      width:50%;
+      & label{
+        color:#fff;
+      }
+      & .input{
+        width:100%;
+        border: 0; 
+        padding: 4px 0;
+        font-size:1.5rem; 
+        border-bottom: 2px solid $grey_color; 
+        background-color: transparent;
+        color:$white_color;
+        &:focus ~ .focus-border{
+          width: 100%; 
+          transition: 0.4s; 
+          left: 0;
+        }
+        &:focus ~ label,
+        & ~ label{
+          top: -16px; 
+          font-size: 12px; 
+          color: $yellow_color; 
+          transition: 0.3s;
+        }
+        & ~ label{
+          position: absolute;
+          left: 0;
+          width: 100%; 
+          top:20%; 
+          color: $grey_color;
+          font-size:1.3rem;
+          font-weight: 200; 
+          transition: 0.3s;
+          z-index: -1;
+          letter-spacing: 0.5px;
+        }
+  
+        & ~ .focus-border{
+          position: absolute; 
+          bottom: 0; 
+          left: 50%; 
+          width: 0; 
+          height: 2px; 
+          background-color: $yellow_color; 
+          transition: 0.4s;
+        }
+      }
     }
-    & .input{
-      width:100%;
-      border: 0; 
-      padding: 4px 0;
-      font-size:1.5rem; 
-      border-bottom: 2px solid $grey_color; 
-      background-color: transparent;
-      color:$white_color;
-      &:focus ~ .focus-border{
-        width: 100%; 
-        transition: 0.4s; 
-        left: 0;
-      }
-      &:focus ~ label,
-      & ~ label{
-        top: -16px; 
-        font-size: 12px; 
-        color: $yellow_color; 
-        transition: 0.3s;
-      }
-      & ~ label{
-        position: absolute;
-        left: 0;
-        width: 100%; 
-        top:20%; 
+    & .select-div{
+      margin-top:3rem;
+      position: relative;
+      left:-5%;
+      z-index: 999;
+      & #search{
+        background:none;
         color: $grey_color;
-        font-size:1.3rem;
-        font-weight: 200; 
-        transition: 0.3s;
-        z-index: -1;
-        letter-spacing: 0.5px;
+        padding-bottom: 0px;
+        width: 150px;
+        border: none;
+        border-bottom:2px solid $grey_color;
+        font-family: 'Poppins';
+        font-size: 20px;
+        font-weight: 300;
+        outline: none;
       }
-
-      & ~ .focus-border{
-        position: absolute; 
-        bottom: 0; 
-        left: 50%; 
-        width: 0; 
-        height: 2px; 
-        background-color: $yellow_color; 
-        transition: 0.4s;
+      &::before{
+        position: absolute;
+        content: "\f078";
+        font-family: FontAwesome;
+        top: -30%;
+        right: -5%;
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 45px;
+        color:$grey_color;
+        z-index: -999;
       }
-    }
-  }
-  & .select-div{
-    margin-top:3rem;
-    position: relative;
-    left:-5%;
-    z-index: 999;
-    & #search{
-      background:none;
-      color: $grey_color;
-      padding-bottom: 0px;
-      width: 150px;
-      border: none;
-      border-bottom:2px solid $grey_color;
-      font-family: 'Poppins';
-      font-size: 20px;
-      font-weight: 300;
-      outline: none;
-    }
-    &::before{
-      position: absolute;
-      content: "\f078";
-      font-family: FontAwesome;
-      top: -30%;
-      right: -5%;
-      width: 20%;
-      height: 100%;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 100;
-      line-height: 45px;
-      color:$grey_color;
-      z-index: -999;
-    }
-    & button{
-      position: absolute;
-      top:-20%;
-      left:120%;
-      padding:5px 10px;
-      border:2px solid $yellow_color;
-      font-size:1.5rem;
-      background: none;
-      color:$yellow_color;
-      font-weight: 300;
-      font-family: 'Poppins';
-      @include trans;
-      &:hover{
-        background: $yellow_color;
-        color:$bg_color;
+      & button{
+        position: absolute;
+        top:-20%;
+        left:120%;
+        padding:5px 10px;
+        border:2px solid $yellow_color;
+        font-size:1.5rem;
+        background: none;
+        color:$yellow_color;
+        font-weight: 300;
+        font-family: 'Poppins';
+        @include trans;
+        &:hover{
+          background: $yellow_color;
+          color:$bg_color;
+        }
       }
     }
   }
+  
   
 }
 @import './section_search_mobile';
