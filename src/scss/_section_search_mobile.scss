@@ -1,18 +1,43 @@
 
 @include mediaSm{
   .search{
-    & .input-wrapper{
-         width:90%;
-       }
-     }
+      & form{
+        width:90%;
+        & .input-wrapper{
+          width:100%;
+        }
+        & .select-div{
+          left:-20%;
+        }
+      }  
+    }
 }
 
 @include mediaMd{
   .search{
-   & .input-wrapper{
-        width:80%;
+      & form{
+        & .input-wrapper{
+          width:100%;
+        }
+        & .select-div{
+          left:-15%;
+          & #select{
+           & option{
+             color:red;
+           }
+          }
+        }
       }
     }
   }
+@include mediaLg{
+  .search{
+    & form{
 
+      & .input-wrapper{
+        width:100%;
+      }
+    }
+  }
+}
 
