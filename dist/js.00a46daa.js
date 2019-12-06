@@ -118,11 +118,20 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/index.js":[function(require,module,exports) {
+//1 Get DOM elements
 var searchForm = document.getElementById('search-form');
-searchForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-  console.log('send');
-});
+var searchInput = document.querySelector('.input');
+var select = document.getElementById('select');
+var result = document.querySelector('.result'); // 2 api base url
+
+var apiBaseUrl = 'https://swapi.co/api'; // // 2 get value of selectOptionEl
+// let searchOption = 'wybierz';
+// //3 onchange select listener
+// select.addEventListener('change',(e) => {
+//   let selectedCategory = e.target.value;
+//   searchOption = selectedCategory
+//   console.log(searchOption)
+// })
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -151,7 +160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50810" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49674" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

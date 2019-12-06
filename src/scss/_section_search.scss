@@ -70,7 +70,7 @@
       position: relative;
       left:-5%;
       z-index: 999;
-      & #search{
+      & #select{
         background:none;
         color: $grey_color;
         padding-bottom: 0px;
@@ -81,6 +81,10 @@
         font-size: 20px;
         font-weight: 300;
         outline: none;
+        & option{
+          color:$white_color;
+          background:$yellow_color;
+        }
       }
       &::before{
         position: absolute;

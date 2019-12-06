@@ -247,7 +247,7 @@
   left: -5%;
   z-index: 999;
 }
-.search form .select-div #search {
+.search form .select-div #select {
   background: none;
   color: #ccc;
   padding-bottom: 0px;
@@ -258,6 +258,10 @@
   font-size: 20px;
   font-weight: 300;
   outline: none;
+}
+.search form .select-div #select option {
+  color: #fff;
+  background: #e4b201;
 }
 .search form .select-div::before {
   position: absolute;
@@ -309,9 +313,6 @@
   }
   .search form .select-div {
     left: -15%;
-  }
-  .search form .select-div #select option {
-    color: red;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1170px) {
