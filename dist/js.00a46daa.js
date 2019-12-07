@@ -124,14 +124,21 @@ var searchInput = document.querySelector('.input');
 var select = document.getElementById('select');
 var result = document.querySelector('.result'); // 2 api base url
 
-var apiBaseUrl = 'https://swapi.co/api'; // // 2 get value of selectOptionEl
-// let searchOption = 'wybierz';
-// //3 onchange select listener
-// select.addEventListener('change',(e) => {
-//   let selectedCategory = e.target.value;
-//   searchOption = selectedCategory
-//   console.log(searchOption)
-// })
+var apiBaseUrl = 'https://swapi.co/api'; // 2 get value of selectOptionEl
+
+var searchOption = 'wybierz'; //3 onchange select listener
+
+select.addEventListener('change', function (e) {
+  var selectedCategory = e.target.value;
+  searchOption = selectedCategory;
+  console.log(searchOption);
+}); //4 serve form submit
+
+searchForm.addEventListener('click', function (e) {
+  e.preventDefault();
+  var searchValue = searchInput.value;
+  console.log(searchValue);
+});
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -160,7 +167,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49674" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49626" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
