@@ -13,12 +13,21 @@ let searchOption = 'wybierz';
 select.addEventListener('change',(e) => {
   let selectedCategory = e.target.value;
   searchOption = selectedCategory
-  console.log(searchOption)
+  // console.log(searchOption)
 })
 
 //4 serve form submit
-searchForm.addEventListener('click',function(e){
+searchForm.addEventListener('submit',function(e){
   e.preventDefault();
+  //5
   const searchValue = searchInput.value;
-  console.log(searchValue);
+  
+  //6 
+  // https://swapi.co/api/people/?search=r2
+  const apiURL = `${apiBaseUrl}/${searchOption}/?search=${searchValue}`
+
+  fetch(apiURL)
+    .then(res => res.json())
+    .then(data => console.log(data.results))
+    .then(err => console.log(err))
 })
