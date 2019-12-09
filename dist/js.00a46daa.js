@@ -122,7 +122,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var searchForm = document.getElementById('search-form');
 var searchInput = document.querySelector('.input');
 var select = document.getElementById('select');
-var result = document.querySelector('.result'); // 2 api base url
+var resultSection = document.querySelector('.result'); // 2 api base url
 
 var apiBaseUrl = 'https://swapi.co/api'; // 2 get value of selectOptionEl
 
@@ -143,11 +143,46 @@ searchForm.addEventListener('submit', function (e) {
   fetch(apiURL).then(function (res) {
     return res.json();
   }).then(function (data) {
-    return console.log(data.results);
+    showResult(searchOption, data.results); // console.log(data.results)
   }).then(function (err) {
     return console.log(err);
   });
 });
+
+function genereteHtml(text) {
+  return "<li style=\"color:#fff\">".concat(text, "</li>");
+} // const showResult = (searchOption,results) => {
+//   let html;
+//   //11
+//   if(searchOption === 'films'){
+//     //12
+//     html = results.map(result => (
+//       genereteHtml(`<b>Title:</b> ${result.title}, <b>Director:</b> ${result.director}`)
+//     )) 
+//   }else if(searchOption === 'people'){
+//     html = results.map(result => (
+//       genereteHtml(`<b>Name:</b> ${result.name}, <b>Height:</b> ${result.height}`)
+//     ))
+//   }
+//   resultSection.innerHTML = html;
+// } 
+//new function showResults 
+// function showResults(searchOption,results){
+//   let htmlStructure;
+//   switch(searchOption){
+//     case 'films':
+//       htmlStructure = results.map(result => (
+//         generateView(`<p>Tytuł:</p> ${result.title}`)
+//       ))
+//       break;
+//     case 'people':
+//       htmlStructure = results.map(result => (
+//         genereteHtml(`<p>Imię i nazwisko: </p> ${result.name}`)
+//       ))
+//       break;
+//   }
+//     resultSection.innerHTML = htmlStructure;
+// }
 },{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -176,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49481" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49677" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
