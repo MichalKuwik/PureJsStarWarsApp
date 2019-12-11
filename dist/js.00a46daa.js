@@ -117,12 +117,67 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
+})({"js/func_generate_view.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function genereteView(text) {
+  return "<div class=\"item\">\n    <p style=\"color:#fff\">".concat(text, "</p>\n    </div>\n    ");
+}
+
+var _default = genereteView;
+exports.default = _default;
+},{}],"js/func_show_result.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _func_generate_view = _interopRequireDefault(require("./func_generate_view"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//get dom element
+var resultSection = document.querySelector('.result');
+
+var showResult = function showResult(searchOption, results) {
+  var htmlStructure; //11
+
+  if (searchOption === 'films') {
+    //12
+    htmlStructure = results.map(function (result) {
+      return (0, _func_generate_view.default)("<b>Title:</b> ".concat(result.title, ", <b>Director:</b> ").concat(result.director));
+    });
+  } else if (searchOption === 'people') {
+    htmlStructure = results.map(function (result) {
+      return (0, _func_generate_view.default)("<b>Name:</b> ".concat(result.name, ", <b>Height:</b> ").concat(result.height));
+    });
+  }
+
+  resultSection.innerHTML = htmlStructure.join('');
+};
+
+var _default = showResult;
+exports.default = _default;
+},{"./func_generate_view":"js/func_generate_view.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _func_generate_view = _interopRequireDefault(require("./func_generate_view"));
+
+var _func_show_result = _interopRequireDefault(require("./func_show_result"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //1 Get DOM elements
 var searchForm = document.getElementById('search-form');
 var searchInput = document.querySelector('.input');
-var select = document.getElementById('select');
-var resultSection = document.querySelector('.result'); // 2 api base url
+var select = document.getElementById('select'); // 2 api base url
 
 var apiBaseUrl = 'https://swapi.co/api'; // 2 get value of selectOptionEl
 
@@ -143,30 +198,12 @@ searchForm.addEventListener('submit', function (e) {
   fetch(apiURL).then(function (res) {
     return res.json();
   }).then(function (data) {
-    showResult(searchOption, data.results); // console.log(data.results)
+    (0, _func_show_result.default)(searchOption, data.results); // console.log(data.results)
   }).then(function (err) {
     return console.log(err);
   });
 });
-
-function genereteView(text) {
-  return "<div class=\"item\">\n    <p style=\"color:#fff\">".concat(text, "</p>\n    </div>\n    ");
-} // const showResult = (searchOption,results) => {
-//   let htmlStructure;
-//   //11
-//   if(searchOption === 'films'){
-//     //12
-//     htmlStructure = results.map(result => (
-//       genereteView(`<b>Title:</b> ${result.title}, <b>Director:</b> ${result.director}`)
-//     )) 
-//   }else if(searchOption === 'people'){
-//     htmlStructure = results.map(result => (
-//       genereteView(`<b>Name:</b> ${result.name}, <b>Height:</b> ${result.height}`)
-//     ))
-//   }
-//   resultSection.innerHTML = htmlStructure.join('');
-// }
-},{}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./func_generate_view":"js/func_generate_view.js","./func_show_result":"js/func_show_result.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -194,7 +231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49595" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,8 +1,11 @@
+import genereteView from './func_generate_view';
+import showResult from './func_show_result';
+
 //1 Get DOM elements
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.input');
 const select = document.getElementById('select');
-const resultSection = document.querySelector('.result');
+
 
 // 2 api base url
 const apiBaseUrl = 'https://swapi.co/api';
@@ -35,28 +38,7 @@ searchForm.addEventListener('submit',function(e){
     .then(err => console.log(err))
 })
 
-function genereteView(text){
-  return `<div class="item">
-    <p style="color:#fff">${text}</p>
-    </div>
-    `
-}
 
-// const showResult = (searchOption,results) => {
-//   let htmlStructure;
-//   //11
-  
-//   if(searchOption === 'films'){
-//     //12
-//     htmlStructure = results.map(result => (
-//       genereteView(`<b>Title:</b> ${result.title}, <b>Director:</b> ${result.director}`)
-//     )) 
-//   }else if(searchOption === 'people'){
-//     htmlStructure = results.map(result => (
-//       genereteView(`<b>Name:</b> ${result.name}, <b>Height:</b> ${result.height}`)
-//     ))
-//   }
 
-//   resultSection.innerHTML = htmlStructure.join('');
-// } 
+ 
 
