@@ -117,7 +117,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/func_generate_view.js":[function(require,module,exports) {
+})({"js/func_select.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.selectFunction = exports.searchOption = void 0;
+// 2 get value of selectOptionEl
+var searchOption = 'wybierz'; //3 onchange select listener
+
+exports.searchOption = searchOption;
+
+var selectFunction = function selectFunction() {
+  return select.addEventListener('change', function (e) {
+    var selectedCategory = e.target.value;
+    exports.searchOption = searchOption = selectedCategory; // console.log(searchOption)
+  });
+};
+
+exports.selectFunction = selectFunction;
+},{}],"js/func_generate_view.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,11 +172,11 @@ var showResult = function showResult(searchOption, results) {
   if (searchOption === 'films') {
     //12
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Title:</b> ".concat(result.title, ", <b>Director:</b> ").concat(result.director));
+      return (0, _func_generate_view.default)("<p>Title:</p> ".concat(result.title, ", <p>Director:</p> ").concat(result.director));
     });
   } else if (searchOption === 'people') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Name:</b> ".concat(result.name, ", <b>Height:</b> ").concat(result.height));
+      return (0, _func_generate_view.default)("<p>Name:</p> ".concat(result.name, ", <p>Height:</p> ").concat(result.height));
     });
   }
 
@@ -165,45 +185,55 @@ var showResult = function showResult(searchOption, results) {
 
 var _default = showResult;
 exports.default = _default;
-},{"./func_generate_view":"js/func_generate_view.js"}],"js/index.js":[function(require,module,exports) {
+},{"./func_generate_view":"js/func_generate_view.js"}],"js/func_searchForm.js":[function(require,module,exports) {
 "use strict";
 
-var _func_generate_view = _interopRequireDefault(require("./func_generate_view"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.searchFormFn = void 0;
+
+var _func_select = require("./func_select");
 
 var _func_show_result = _interopRequireDefault(require("./func_show_result"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//1 Get DOM elements
+//get DOM
 var searchForm = document.getElementById('search-form');
-var searchInput = document.querySelector('.input');
-var select = document.getElementById('select'); // 2 api base url
+var searchInput = document.querySelector('.input'); // 2 api base url
 
-var apiBaseUrl = 'https://swapi.co/api'; // 2 get value of selectOptionEl
+var apiBaseUrl = 'https://swapi.co/api'; //4 serve form submit
 
-var searchOption = 'wybierz'; //3 onchange select listener
-
-select.addEventListener('change', function (e) {
-  var selectedCategory = e.target.value;
-  searchOption = selectedCategory; // console.log(searchOption)
-}); //4 serve form submit
-
-searchForm.addEventListener('submit', function (e) {
+var searchFormFn = searchForm.addEventListener('submit', function (e) {
   e.preventDefault(); //5
 
   var searchValue = searchInput.value; //6 
   // https://swapi.co/api/people/?search=r2
 
-  var apiURL = "".concat(apiBaseUrl, "/").concat(searchOption, "/?search=").concat(searchValue);
+  var apiURL = "".concat(apiBaseUrl, "/").concat(_func_select.searchOption, "/?search=").concat(searchValue);
   fetch(apiURL).then(function (res) {
     return res.json();
   }).then(function (data) {
-    (0, _func_show_result.default)(searchOption, data.results); // console.log(data.results)
+    (0, _func_show_result.default)(_func_select.searchOption, data.results); // console.log(data.results)
   }).then(function (err) {
     return console.log(err);
   });
 });
-},{"./func_generate_view":"js/func_generate_view.js","./func_show_result":"js/func_show_result.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+exports.searchFormFn = searchFormFn;
+},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _func_select = require("./func_select");
+
+var _func_searchForm = require("./func_searchForm");
+
+_func_select.searchOption; //select option function
+
+(0, _func_select.selectFunction)(); //searchFrom function
+
+_func_searchForm.searchFormFn;
+},{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -231,7 +261,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49595" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50893" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

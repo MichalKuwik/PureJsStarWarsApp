@@ -10,11 +10,11 @@ const showResult = (searchOption,results) => {
   if(searchOption === 'films'){
     //12
     htmlStructure = results.map(result => (
-      genereteView(`<b>Title:</b> ${result.title}, <b>Director:</b> ${result.director}`)
+      genereteView(`<p>Title:</p> ${result.title}, <p>Director:</p> ${result.director}`)
     )) 
   }else if(searchOption === 'people'){
     htmlStructure = results.map(result => (
-      genereteView(`<b>Name:</b> ${result.name}, <b>Height:</b> ${result.height}`)
+      genereteView(`<p>Name:</p> ${result.name}, <p>Height:</p> ${result.height}`)
     ))
   }
 
