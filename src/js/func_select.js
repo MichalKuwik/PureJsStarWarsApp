@@ -8,3 +8,7 @@ export const selectFunction = () => select.addEventListener('change',(e) => {
   searchOption = selectedCategory
   // console.log(searchOption)
 })
+
+export const reverseData = (paramData) => {
+  return paramData.split('-').reverse().join('-');
+}

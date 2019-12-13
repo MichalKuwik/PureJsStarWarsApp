@@ -123,7 +123,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.selectFunction = exports.searchOption = void 0;
+exports.reverseData = exports.selectFunction = exports.searchOption = void 0;
 // 2 get value of selectOptionEl
 var searchOption = 'wybierz'; //3 onchange select listener
 
@@ -137,6 +137,12 @@ var selectFunction = function selectFunction() {
 };
 
 exports.selectFunction = selectFunction;
+
+var reverseData = function reverseData(paramData) {
+  return paramData.split('-').reverse().join('-');
+};
+
+exports.reverseData = reverseData;
 },{}],"js/func_generate_view.js":[function(require,module,exports) {
 "use strict";
 
@@ -161,6 +167,8 @@ exports.default = void 0;
 
 var _func_generate_view = _interopRequireDefault(require("./func_generate_view"));
 
+var _func_select = require("./func_select");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //get dom element
@@ -172,11 +180,19 @@ var showResult = function showResult(searchOption, results) {
   if (searchOption === 'films') {
     //12
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<p>Title:</p> ".concat(result.title, ", <p>Director:</p> ").concat(result.director));
+      return (0, _func_generate_view.default)("<b>Tytu\u0142:</b> ".concat(result.title, ", <b>Re\u017Cyser:</b> ").concat(result.director, ", <b>Data premiery:</b> ").concat((0, _func_select.reverseData)(result.release_date), "r."));
     });
   } else if (searchOption === 'people') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<p>Name:</p> ".concat(result.name, ", <p>Height:</p> ").concat(result.height));
+      return (0, _func_generate_view.default)("<b>Imi\u0119 i nazwisko:</b> ".concat(result.name, ", <b>Wzrost:</b> ").concat(result.height, " cm, <b>Waga:</b> ").concat(result.mass, "kg"));
+    });
+  } else if (searchOption === 'planets') {
+    htmlStructure = results.map(function (result) {
+      return (0, _func_generate_view.default)("<b>Nazwa:</b> ".concat(result.name, ", <b>Populacja:</b> ").concat(result.population, ", <b>Rodzaj powierzchni:<b/> ").concat(result.terrain));
+    });
+  } else if (searchOption === 'starships') {
+    htmlStructure = results.map(function (result) {
+      return (0, _func_generate_view.default)("<b>Nazwa:</b> ".concat(result.name, ", <b>Model:</b> ").concat(result.model, ", <b>Koszt: ").concat(result.cost_in_credits, " kredyt\xF3w</b>"));
     });
   }
 
@@ -185,7 +201,7 @@ var showResult = function showResult(searchOption, results) {
 
 var _default = showResult;
 exports.default = _default;
-},{"./func_generate_view":"js/func_generate_view.js"}],"js/func_searchForm.js":[function(require,module,exports) {
+},{"./func_generate_view":"js/func_generate_view.js","./func_select":"js/func_select.js"}],"js/func_searchForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
