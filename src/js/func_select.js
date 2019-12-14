@@ -1,4 +1,6 @@
 
+import {searchInput} from './func_searchForm';
+
 // 2 get value of selectOptionEl
 export let searchOption = 'wybierz';
 
@@ -11,4 +13,8 @@ export const selectFunction = () => select.addEventListener('change',(e) => {
 
 export const reverseData = (paramData) => {
   return paramData.split('-').reverse().join('-');
+}
+
+export const resetInputValue = () => {
+  return searchInput.value = '';
 }

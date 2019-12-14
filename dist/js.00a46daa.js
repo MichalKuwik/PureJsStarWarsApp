@@ -117,33 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/func_select.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.reverseData = exports.selectFunction = exports.searchOption = void 0;
-// 2 get value of selectOptionEl
-var searchOption = 'wybierz'; //3 onchange select listener
-
-exports.searchOption = searchOption;
-
-var selectFunction = function selectFunction() {
-  return select.addEventListener('change', function (e) {
-    var selectedCategory = e.target.value;
-    exports.searchOption = searchOption = selectedCategory; // console.log(searchOption)
-  });
-};
-
-exports.selectFunction = selectFunction;
-
-var reverseData = function reverseData(paramData) {
-  return paramData.split('-').reverse().join('-');
-};
-
-exports.reverseData = reverseData;
-},{}],"js/func_generate_view.js":[function(require,module,exports) {
+})({"js/func_generate_view.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -184,7 +158,7 @@ var showResult = function showResult(searchOption, results) {
     });
   } else if (searchOption === 'people') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Imi\u0119 i nazwisko:</b> ".concat(result.name, ", <b>Wzrost:</b> ").concat(result.height, " cm, <b>Waga:</b> ").concat(result.mass, "kg"));
+      return (0, _func_generate_view.default)("<b>Imi\u0119 i nazwisko:</b> ".concat(result.name, ", <b>Wzrost:</b> ").concat(result.height, "cm, <b>Waga:</b> ").concat(result.mass, "kg"));
     });
   } else if (searchOption === 'planets') {
     htmlStructure = results.map(function (result) {
@@ -207,7 +181,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.searchFormFn = void 0;
+exports.searchFormFn = exports.searchInput = void 0;
 
 var _func_select = require("./func_select");
 
@@ -219,6 +193,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var searchForm = document.getElementById('search-form');
 var searchInput = document.querySelector('.input'); // 2 api base url
 
+exports.searchInput = searchInput;
 var apiBaseUrl = 'https://swapi.co/api'; //4 serve form submit
 
 var searchFormFn = searchForm.addEventListener('submit', function (e) {
@@ -234,10 +209,47 @@ var searchFormFn = searchForm.addEventListener('submit', function (e) {
     (0, _func_show_result.default)(_func_select.searchOption, data.results); // console.log(data.results)
   }).then(function (err) {
     return console.log(err);
-  });
+  }); //after 1s run this function
+
+  setTimeout(_func_select.resetInputValue, 1000);
 });
 exports.searchFormFn = searchFormFn;
-},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js"}],"js/index.js":[function(require,module,exports) {
+},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js"}],"js/func_select.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.resetInputValue = exports.reverseData = exports.selectFunction = exports.searchOption = void 0;
+
+var _func_searchForm = require("./func_searchForm");
+
+// 2 get value of selectOptionEl
+var searchOption = 'wybierz'; //3 onchange select listener
+
+exports.searchOption = searchOption;
+
+var selectFunction = function selectFunction() {
+  return select.addEventListener('change', function (e) {
+    var selectedCategory = e.target.value;
+    exports.searchOption = searchOption = selectedCategory; // console.log(searchOption)
+  });
+};
+
+exports.selectFunction = selectFunction;
+
+var reverseData = function reverseData(paramData) {
+  return paramData.split('-').reverse().join('-');
+};
+
+exports.reverseData = reverseData;
+
+var resetInputValue = function resetInputValue() {
+  return _func_searchForm.searchInput.value = '';
+};
+
+exports.resetInputValue = resetInputValue;
+},{"./func_searchForm":"js/func_searchForm.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _func_select = require("./func_select");
@@ -277,7 +289,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50893" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49421" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,9 +1,11 @@
 import {searchOption} from './func_select';
 import showResult from './func_show_result';
+import {resetInputValue} from './func_select';
+
 
 //get DOM
 const searchForm = document.getElementById('search-form');
-const searchInput = document.querySelector('.input');
+export const searchInput = document.querySelector('.input');
 
 // 2 api base url
 const apiBaseUrl = 'https://swapi.co/api';
@@ -25,4 +27,7 @@ const apiBaseUrl = 'https://swapi.co/api';
       // console.log(data.results)
     })
     .then(err => console.log(err))
+
+    //after 1s run this function
+    setTimeout(resetInputValue,1000);
 });

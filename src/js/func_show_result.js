@@ -15,7 +15,7 @@ const showResult = (searchOption,results) => {
     )) 
   }else if(searchOption === 'people'){
     htmlStructure = results.map(result => (
-      genereteView(`<b>Imię i nazwisko:</b> ${result.name}, <b>Wzrost:</b> ${result.height} cm, <b>Waga:</b> ${result.mass}kg`)
+      genereteView(`<b>Imię i nazwisko:</b> ${result.name}, <b>Wzrost:</b> ${result.height}cm, <b>Waga:</b> ${result.mass}kg`)
     ))
   }else if(searchOption === 'planets'){
     htmlStructure = results.map(result => (
