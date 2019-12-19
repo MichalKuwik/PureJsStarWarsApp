@@ -12442,20 +12442,16 @@ var gsapWithCSS = _gsapCore.default.registerPlugin(_CSSPlugin.default) || _gsapC
 
 
 exports.default = exports.gsap = gsapWithCSS;
-},{"./gsap-core.js":"../node_modules/gsap/gsap-core.js","./CSSPlugin.js":"../node_modules/gsap/CSSPlugin.js","./Draggable.js":"../node_modules/gsap/Draggable.js","./CSSRulePlugin.js":"../node_modules/gsap/CSSRulePlugin.js","./EaselPlugin.js":"../node_modules/gsap/EaselPlugin.js","./EasePack.js":"../node_modules/gsap/EasePack.js","./MotionPathPlugin.js":"../node_modules/gsap/MotionPathPlugin.js","./PixiPlugin.js":"../node_modules/gsap/PixiPlugin.js","./ScrollToPlugin.js":"../node_modules/gsap/ScrollToPlugin.js","./TextPlugin.js":"../node_modules/gsap/TextPlugin.js"}],"js/index.js":[function(require,module,exports) {
+},{"./gsap-core.js":"../node_modules/gsap/gsap-core.js","./CSSPlugin.js":"../node_modules/gsap/CSSPlugin.js","./Draggable.js":"../node_modules/gsap/Draggable.js","./CSSRulePlugin.js":"../node_modules/gsap/CSSRulePlugin.js","./EaselPlugin.js":"../node_modules/gsap/EaselPlugin.js","./EasePack.js":"../node_modules/gsap/EasePack.js","./MotionPathPlugin.js":"../node_modules/gsap/MotionPathPlugin.js","./PixiPlugin.js":"../node_modules/gsap/PixiPlugin.js","./ScrollToPlugin.js":"../node_modules/gsap/ScrollToPlugin.js","./TextPlugin.js":"../node_modules/gsap/TextPlugin.js"}],"js/animations.js":[function(require,module,exports) {
 "use strict";
 
-var _func_select = require("./func_select");
-
-var _func_searchForm = require("./func_searchForm");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _all = require("gsap/all");
 
-_func_select.searchOption; //select option function
-
-(0, _func_select.selectFunction)(); //searchFrom function
-
-_func_searchForm.searchFormFn;
 var starWars = document.querySelector('.header-desc');
 var robot = document.querySelector('.robot');
 var planet = document.querySelector('.planet');
@@ -12465,33 +12461,57 @@ var label = document.querySelector('.label');
 var select = document.querySelector('.select-div');
 var btn = document.getElementById('sub-btn');
 var tl = new _all.TimelineMax();
-tl.from(starWars, 1.5, {
-  delay: 1,
-  y: '50%',
-  opacity: 0,
-  scale: 3
-}).from(robot, 1, {
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)"
-}).from(planet, 0.5, {
-  scale: 0
-}).staggerFrom(ships, 0.2, {
-  scale: 0
-}, 0.2).staggerTo(ships, 0.5, {
-  y: 20,
-  yoyo: true
-}, 0.3).from(input, 0.5, {
-  width: 0
-}).from(label, 0.2, {
-  y: -20,
-  opacity: 0
-}).set(btn, {
-  opacity: 1
-}).from(select, 0.5, {
-  delay: 1,
-  scaleY: 0
-});
-},{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js","gsap/all":"../node_modules/gsap/all.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function animation() {
+  tl.from(starWars, 1.5, {
+    delay: 1,
+    y: '50%',
+    opacity: 0,
+    scale: 3
+  }).from(robot, 1, {
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)"
+  }).from(planet, 0.5, {
+    scale: 0
+  }).staggerFrom(ships, 0.2, {
+    scale: 0
+  }, 0.2).staggerTo(ships, 0.5, {
+    y: 20,
+    yoyo: true
+  }, 0.3).from(input, 0.5, {
+    width: 0
+  }).from(label, 0.2, {
+    y: -20,
+    opacity: 0
+  }).set(btn, {
+    opacity: 1
+  }).from(select, 0.5, {
+    delay: 1,
+    scaleY: 0
+  });
+}
+
+var _default = animation;
+exports.default = _default;
+},{"gsap/all":"../node_modules/gsap/all.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _func_select = require("./func_select");
+
+var _func_searchForm = require("./func_searchForm");
+
+var _animations = _interopRequireDefault(require("./animations"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//first animations
+(0, _animations.default)();
+_func_select.searchOption; //select option function
+
+(0, _func_select.selectFunction)(); //searchFrom function
+
+_func_searchForm.searchFormFn;
+},{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js","./animations":"js/animations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12519,7 +12539,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49411" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51237" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
