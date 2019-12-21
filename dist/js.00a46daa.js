@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 function genereteView(text) {
-  return "<div class=\"item\">\n    <p style=\"color:#fff\">".concat(text, "</p>\n    </div>\n    ");
+  return "<div class=\"item\">\n    ".concat(text, "\n    </div>\n    ");
 }
 
 var _default = genereteView;
@@ -154,19 +154,19 @@ var showResult = function showResult(searchOption, results) {
   if (searchOption === 'films') {
     //12
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Tytu\u0142:</b> ".concat(result.title, ", <b>Re\u017Cyser:</b> ").concat(result.director, ", <b>Data premiery:</b> ").concat((0, _func_select.reverseData)(result.release_date), "r."));
+      return (0, _func_generate_view.default)("<h2>Tytu\u0142:</h2> <p>".concat(result.title, "</p>, <h2>Re\u017Cyser:</h2> <p>").concat(result.director, "</p>, <h2>Data premiery:</h2> <p>").concat((0, _func_select.reverseData)(result.release_date), "r.</p>"));
     });
   } else if (searchOption === 'people') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Imi\u0119 i nazwisko:</b> ".concat(result.name, ", <b>Wzrost:</b> ").concat(result.height, "cm, <b>Waga:</b> ").concat(result.mass, "kg"));
+      return (0, _func_generate_view.default)("<h2>Imi\u0119 i nazwisko:</h2> <p>".concat(result.name, "</p>, <h2>Wzrost:</h2> <p>").concat(result.height, "cm</p>, <h2>Waga:</h2> <p>").concat(result.mass, "kg</p>"));
     });
   } else if (searchOption === 'planets') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Nazwa:</b> ".concat(result.name, ", <b>Populacja:</b> ").concat(result.population, ", <b>Rodzaj powierzchni:<b/> ").concat(result.terrain));
+      return (0, _func_generate_view.default)("<h2>Nazwa:</h2> <p>".concat(result.name, "</p>, <h2>Populacja:</h2> <p>").concat(result.population, "</p>, <h2>Rodzaj powierzchni:</h2> <p>").concat(result.terrain, "</p>"));
     });
   } else if (searchOption === 'starships') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<b>Nazwa:</b> ".concat(result.name, ", <b>Model:</b> ").concat(result.model, ", <b>Koszt: ").concat(result.cost_in_credits, " kredyt\xF3w</b>"));
+      return (0, _func_generate_view.default)("<h2>Nazwa:</h2> <p>".concat(result.name, "</p>, <h2>Model:</h2> <p>").concat(result.model, "</p>, <h2>Koszt:</h2> <p>").concat(result.cost_in_credits, " kredyt\xF3w</p>"));
     });
   }
 
@@ -12539,7 +12539,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51237" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60332" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

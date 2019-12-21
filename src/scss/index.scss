@@ -1,9 +1,11 @@
 @import './variables';
 @import './header';
 @import './_section_search';
+@import './result';
 
 body{
   background-image: url('../img/1.jpg');
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Poppins';
+  min-height: 100vh;
 }

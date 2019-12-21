@@ -1,7 +1,7 @@
 
  function genereteView(text){
   return `<div class="item">
-    <p style="color:#fff">${text}</p>
+    ${text}
     </div>
     `
 }

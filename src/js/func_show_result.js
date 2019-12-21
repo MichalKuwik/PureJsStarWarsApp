@@ -11,19 +11,19 @@ const showResult = (searchOption,results) => {
   if(searchOption === 'films'){
     //12
     htmlStructure = results.map(result => (
-      genereteView(`<b>Tytuł:</b> ${result.title}, <b>Reżyser:</b> ${result.director}, <b>Data premiery:</b> ${reverseData(result.release_date)}r.`)
+      genereteView(`<h2>Tytuł:</h2> <p>${result.title}</p>, <h2>Reżyser:</h2> <p>${result.director}</p>, <h2>Data premiery:</h2> <p>${reverseData(result.release_date)}r.</p>`)
     )) 
   }else if(searchOption === 'people'){
     htmlStructure = results.map(result => (
-      genereteView(`<b>Imię i nazwisko:</b> ${result.name}, <b>Wzrost:</b> ${result.height}cm, <b>Waga:</b> ${result.mass}kg`)
+      genereteView(`<h2>Imię i nazwisko:</h2> <p>${result.name}</p>, <h2>Wzrost:</h2> <p>${result.height}cm</p>, <h2>Waga:</h2> <p>${result.mass}kg</p>`)
     ))
   }else if(searchOption === 'planets'){
     htmlStructure = results.map(result => (
-      genereteView(`<b>Nazwa:</b> ${result.name}, <b>Populacja:</b> ${result.population}, <b>Rodzaj powierzchni:<b/> ${result.terrain}`)
+      genereteView(`<h2>Nazwa:</h2> <p>${result.name}</p>, <h2>Populacja:</h2> <p>${result.population}</p>, <h2>Rodzaj powierzchni:</h2> <p>${result.terrain}</p>`)
     ))
   }else if(searchOption === 'starships'){
     htmlStructure = results.map(result => (
-      genereteView(`<b>Nazwa:</b> ${result.name}, <b>Model:</b> ${result.model}, <b>Koszt: ${result.cost_in_credits} kredytów</b>`)
+      genereteView(`<h2>Nazwa:</h2> <p>${result.name}</p>, <h2>Model:</h2> <p>${result.model}</p>, <h2>Koszt:</h2> <p>${result.cost_in_credits} kredytów</p>`)
     ))
   }
 

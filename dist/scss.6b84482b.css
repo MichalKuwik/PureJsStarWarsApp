@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 .header {
   margin-top: 4rem;
   display: flex;
@@ -320,10 +321,39 @@
     width: 100%;
   }
 }
+.result {
+  width: 90vw;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.result .item {
+  width: 25vw;
+  height: 30vh;
+  margin: 2rem 2rem;
+  border: 2px solid #e4b201;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result .item h2, .result .item h3, .result .item h4 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.result .item p {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-image: url("/1.dc197a9a.jpg");
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Poppins";
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=/scss.6b84482b.css.map */

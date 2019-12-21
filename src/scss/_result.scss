@@ -1,0 +1,30 @@
+@import './_variables';
+
+.result{
+  width:90vw;
+  margin:5rem auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  & .item{
+    width:25vw;
+    height: 30vh;
+    margin:2rem 2rem;
+    border:2px solid $yellow_color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+      & h2,h3,h4 {
+        color:$white_color;
+        margin:0;
+        padding:0;
+      }
+      & p {
+        color:$white_color;
+        margin:0;
+        padding:0;
+      }
+  }
+}
