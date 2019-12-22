@@ -7,9 +7,9 @@
   justify-content: space-around;
   flex-wrap: wrap;
   & .item{
-    width:25vw;
+    width:20vw;
     height: 30vh;
-    margin:2rem 2rem;
+    margin:2rem 0.5rem;
     border:2px solid $yellow_color;
     display: flex;
     flex-direction: column;
@@ -28,3 +28,5 @@
       }
   }
 }
+
+@import './result_mobile';

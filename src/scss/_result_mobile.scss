@@ -1,0 +1,24 @@
+
+@include mediaLg{
+  .result{
+    & .item{
+      width:25vw;
+    }
+  }  
+}
+
+@include mediaMd{
+  .result{
+    & .item{
+      width:30vw;
+    }
+  }  
+}
+
+@include mediaSm{
+  .result{
+    & .item{
+      width:100vw;
+    }
+  }  
+}

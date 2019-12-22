@@ -329,9 +329,9 @@
   flex-wrap: wrap;
 }
 .result .item {
-  width: 25vw;
+  width: 20vw;
   height: 30vh;
-  margin: 2rem 2rem;
+  margin: 2rem 0.5rem;
   border: 2px solid #e4b201;
   display: flex;
   flex-direction: column;
@@ -349,6 +349,21 @@
   padding: 0;
 }
 
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .result .item {
+    width: 25vw;
+  }
+}
+@media screen and (min-width: 761px) and (max-width: 768px) {
+  .result .item {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 760px) {
+  .result .item {
+    width: 100vw;
+  }
+}
 body {
   background-image: url("/1.dc197a9a.jpg");
   overflow-x: hidden;
