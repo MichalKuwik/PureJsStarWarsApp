@@ -10,11 +10,15 @@
     width:20vw;
     height: 30vh;
     margin:2rem 0.5rem;
-    border:2px solid $yellow_color;
+    // border:2px solid $yellow_color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('../img/background-item.png');
+    background-position: center center;
+    background-size: 60%;
+    background-repeat: no-repeat;
     
       & h2,h3,h4 {
         color:$white_color;

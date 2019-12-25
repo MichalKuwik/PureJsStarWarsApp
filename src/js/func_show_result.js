@@ -1,8 +1,13 @@
 import genereteView from './func_generate_view';
 import {reverseData} from './func_select';
 
+
+
+const itemDiv = document.querySelectorAll('.item');
+
 //get dom element
 const resultSection = document.querySelector('.result');
+
 
 const showResult = (searchOption,results) => {
   let htmlStructure;
@@ -17,6 +22,7 @@ const showResult = (searchOption,results) => {
     htmlStructure = results.map(result => (
       genereteView(`<h2>Imię i nazwisko:</h2> <p>${result.name}</p>, <h2>Wzrost:</h2> <p>${result.height}cm</p>, <h2>Waga:</h2> <p>${result.mass}kg</p>`)
     ))
+    
   }else if(searchOption === 'planets'){
     htmlStructure = results.map(result => (
       genereteView(`<h2>Nazwa:</h2> <p>${result.name}</p>, <h2>Populacja:</h2> <p>${result.population}</p>, <h2>Rodzaj powierzchni:</h2> <p>${result.terrain}</p>`)
