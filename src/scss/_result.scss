@@ -2,13 +2,14 @@
 
 .result{
   width:90vw;
+  min-height: 110vh;
   margin:5rem auto;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   & .item{
     width:20vw;
-    height: 30vh;
+    height: 20vh;
     margin:2rem 0.5rem;
     // border:2px solid $yellow_color;
     display: flex;
@@ -21,7 +22,9 @@
     background-repeat: no-repeat;
     
       & h2,h3,h4 {
-        color:$white_color;
+        color:$blue_color;
+        background:rgba(0,0,0,0.1);
+        font-weight: 400;
         margin:0;
         padding:0;
       }
@@ -29,6 +32,7 @@
         color:$white_color;
         margin:0;
         padding:0;
+        background:rgba(0,0,0,0.8);
       }
   }
 }

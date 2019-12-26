@@ -1,13 +1,8 @@
-
-
-
-
- function genereteView(text){
+function genereteView(text){
   return `<div class="item">
     ${text}
     </div>
     `
-
 }
 
 

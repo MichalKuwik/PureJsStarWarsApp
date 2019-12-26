@@ -323,6 +323,7 @@
 }
 .result {
   width: 90vw;
+  min-height: 110vh;
   margin: 5rem auto;
   display: flex;
   justify-content: space-around;
@@ -330,7 +331,7 @@
 }
 .result .item {
   width: 20vw;
-  height: 30vh;
+  height: 20vh;
   margin: 2rem 0.5rem;
   display: flex;
   flex-direction: column;
@@ -342,7 +343,9 @@
   background-repeat: no-repeat;
 }
 .result .item h2, .result .item h3, .result .item h4 {
-  color: #fff;
+  color: #2895da;
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -350,6 +353,7 @@
   color: #fff;
   margin: 0;
   padding: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
