@@ -10,3 +10,12 @@ $blue_color:#2895da;
 @mixin trans {
   transition: all 0.3s ease-in;
 }
+
+@keyframes animItem{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}

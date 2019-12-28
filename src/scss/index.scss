@@ -6,6 +6,7 @@
 body{
   background-image: url('../img/1.jpg');
   overflow-x: hidden;
+  background-color: $bg_color;
   font-family: 'Poppins';
   min-height: 100vh;
 }

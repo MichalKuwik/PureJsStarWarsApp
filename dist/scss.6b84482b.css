@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
+@keyframes animItem {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .header {
   margin-top: 4rem;
   display: flex;
@@ -180,6 +188,14 @@
     transform: rotate(0deg);
   }
 }
+@keyframes animItem {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .search {
   display: flex;
   justify-content: center;
@@ -321,6 +337,14 @@
     width: 100%;
   }
 }
+@keyframes animItem {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .result {
   width: 90vw;
   min-height: 110vh;
@@ -341,6 +365,7 @@
   background-position: center center;
   background-size: 60%;
   background-repeat: no-repeat;
+  animation: animItem 1s ease both;
 }
 .result .item h2, .result .item h3, .result .item h4 {
   color: #2895da;
@@ -374,6 +399,7 @@
 body {
   background-image: url("/1.dc197a9a.jpg");
   overflow-x: hidden;
+  background-color: #000;
   font-family: "Poppins";
   min-height: 100vh;
 }

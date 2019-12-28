@@ -20,7 +20,7 @@ const showResult = (searchOption,results) => {
     )) 
   }else if(searchOption === 'people'){
     htmlStructure = results.map(result => (
-      genereteView(`<h2>Imię i nazwisko:</h2> <p>${result.name}</p>, <h2>Wzrost:</h2> <p>${result.height}cm</p>, <h2>Waga:</h2> <p>${result.mass}kg</p>`)
+      genereteView(`<h2>Imię i nazwisko:</h2> <p>${result.name}</p>, <h2>Wzrost:</h2> <p>${result.height}cm</p>, <h2>Waga:</h2> <p>${result.mass === 'unknown' ? 'brak danych w API' : `${result.mass}kg`}</p>`)
     ))
     
   }else if(searchOption === 'planets'){
@@ -29,7 +29,7 @@ const showResult = (searchOption,results) => {
     ))
   }else if(searchOption === 'starships'){
     htmlStructure = results.map(result => (
-      genereteView(`<h2>Nazwa:</h2> <p>${result.name}</p>, <h2>Model:</h2> <p>${result.model}</p>, <h2>Koszt:</h2> <p>${result.cost_in_credits} kredytów</p>`)
+      genereteView(`<h2>Nazwa:</h2> <p>${result.name}</p>, <h2>Model:</h2> <p>${result.model}</p>, <h2>Koszt:</h2> <p>${result.cost_in_credits === 'unknown' ? 'brak danych w API' : `${result.cost_in_credits} kredytów`}</p>`)
     ))
   }
 

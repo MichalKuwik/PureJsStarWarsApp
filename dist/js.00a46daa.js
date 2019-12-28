@@ -159,7 +159,7 @@ var showResult = function showResult(searchOption, results) {
     });
   } else if (searchOption === 'people') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<h2>Imi\u0119 i nazwisko:</h2> <p>".concat(result.name, "</p>, <h2>Wzrost:</h2> <p>").concat(result.height, "cm</p>, <h2>Waga:</h2> <p>").concat(result.mass, "kg</p>"));
+      return (0, _func_generate_view.default)("<h2>Imi\u0119 i nazwisko:</h2> <p>".concat(result.name, "</p>, <h2>Wzrost:</h2> <p>").concat(result.height, "cm</p>, <h2>Waga:</h2> <p>").concat(result.mass === 'unknown' ? 'brak danych w API' : "".concat(result.mass, "kg"), "</p>"));
     });
   } else if (searchOption === 'planets') {
     htmlStructure = results.map(function (result) {
@@ -167,7 +167,7 @@ var showResult = function showResult(searchOption, results) {
     });
   } else if (searchOption === 'starships') {
     htmlStructure = results.map(function (result) {
-      return (0, _func_generate_view.default)("<h2>Nazwa:</h2> <p>".concat(result.name, "</p>, <h2>Model:</h2> <p>").concat(result.model, "</p>, <h2>Koszt:</h2> <p>").concat(result.cost_in_credits, " kredyt\xF3w</p>"));
+      return (0, _func_generate_view.default)("<h2>Nazwa:</h2> <p>".concat(result.name, "</p>, <h2>Model:</h2> <p>").concat(result.model, "</p>, <h2>Koszt:</h2> <p>").concat(result.cost_in_credits === 'unknown' ? 'brak danych w API' : "".concat(result.cost_in_credits, " kredyt\xF3w"), "</p>"));
     });
   }
 
@@ -12540,7 +12540,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49624" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50652" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

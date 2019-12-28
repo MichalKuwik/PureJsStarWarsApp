@@ -11,7 +11,6 @@
     width:20vw;
     height: 20vh;
     margin:2rem 0.5rem;
-    // border:2px solid $yellow_color;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +19,7 @@
     background-position: center center;
     background-size: 60%;
     background-repeat: no-repeat;
-    
+    animation: animItem 1s ease both;
       & h2,h3,h4 {
         color:$blue_color;
         background:rgba(0,0,0,0.1);

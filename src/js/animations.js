@@ -9,6 +9,8 @@ const label = document.querySelector('.label');
 const select = document.querySelector('.select-div');
 const btn = document.getElementById('sub-btn');
 
+
+
 const tl = new TimelineMax();
 
 function animation(){
@@ -22,5 +24,7 @@ function animation(){
   .set(btn,{opacity:1})
   .from(select,0.5,{delay:1,scaleY:0})
 }
+
+
 
 export default animation;
