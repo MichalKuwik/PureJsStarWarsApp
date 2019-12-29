@@ -12476,7 +12476,11 @@ function animation() {
     scale: 0
   }).staggerFrom(ships, 0.2, {
     scale: 0
-  }, 0.2).staggerTo(ships, 0.5, {
+  }, 0.2).staggerTo(ships, 1, {
+    y: -30,
+    repeat: -1,
+    yoyo: true
+  }, 0.5).staggerTo(ships, 0.5, {
     y: 20,
     yoyo: true
   }, 0.3).from(input, 0.5, {

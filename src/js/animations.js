@@ -18,6 +18,7 @@ function animation(){
   .from(robot,1,{scaleY:0,ease: "elastic.out(1, 0.3)"})
   .from(planet,0.5,{scale:0})
   .staggerFrom(ships,0.2,{scale:0},0.2)
+  .staggerTo(ships,1,{y:-30,repeat:-1,yoyo:true},0.5)
   .staggerTo(ships,0.5,{y:20,yoyo:true},0.3)
   .from(input,0.5,{width:0})
   .from(label,0.2,{y:-20,opacity:0})
