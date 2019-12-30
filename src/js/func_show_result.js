@@ -1,13 +1,9 @@
 import genereteView from './func_generate_view';
 import {reverseData} from './func_select';
 
-
-
-const itemDiv = document.querySelectorAll('.item');
-
 //get dom element
-const resultSection = document.querySelector('.result');
-
+export const itemDiv = document.querySelectorAll('.item');
+export const resultSection = document.querySelector('.result');
 
 const showResult = (searchOption,results) => {
   let htmlStructure;

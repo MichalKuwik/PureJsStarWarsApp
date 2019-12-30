@@ -258,6 +258,13 @@
   background-color: #e4b201;
   transition: 0.4s;
 }
+.search form .input-wrapper .info-walidation {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #B80F0A;
+}
 .search form .select-div {
   margin-top: 3rem;
   position: relative;
@@ -352,6 +359,9 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.result.remove {
+  display: none;
 }
 .result .item {
   width: 20vw;

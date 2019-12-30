@@ -137,7 +137,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.resultSection = exports.itemDiv = void 0;
 
 var _func_generate_view = _interopRequireDefault(require("./func_generate_view"));
 
@@ -145,9 +145,11 @@ var _func_select = require("./func_select");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var itemDiv = document.querySelectorAll('.item'); //get dom element
-
+//get dom element
+var itemDiv = document.querySelectorAll('.item');
+exports.itemDiv = itemDiv;
 var resultSection = document.querySelector('.result');
+exports.resultSection = resultSection;
 
 var showResult = function showResult(searchOption, results) {
   var htmlStructure; //11
@@ -176,7 +178,44 @@ var showResult = function showResult(searchOption, results) {
 
 var _default = showResult;
 exports.default = _default;
-},{"./func_generate_view":"js/func_generate_view.js","./func_select":"js/func_select.js"}],"js/func_searchForm.js":[function(require,module,exports) {
+},{"./func_generate_view":"js/func_generate_view.js","./func_select":"js/func_select.js"}],"js/validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.check = check;
+exports.validateFlag = void 0;
+
+var _func_searchForm = require("./func_searchForm");
+
+// import {disapear,apear} from './disaper_apear_functions';
+//dom el
+var warning = document.querySelector('.info-walidation');
+var validateFlag = true; //new walidation
+
+exports.validateFlag = validateFlag;
+
+function check() {
+  var inputValue = _func_searchForm.searchInput.value.trim();
+
+  var messages = [];
+
+  if (inputValue === '' || inputValue === null) {
+    messages.push('Proszę wpisać wyraz,literę lub cyfrę!');
+    warning.innerHTML = messages;
+    exports.validateFlag = validateFlag = false;
+    disapear();
+  }
+
+  if (inputValue !== '') {
+    messages.push('');
+    warning.innerHTML = messages;
+    exports.validateFlag = validateFlag = true;
+    apear();
+  }
+}
+},{"./func_searchForm":"js/func_searchForm.js"}],"js/func_searchForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -187,6 +226,8 @@ exports.searchFormFn = exports.searchInput = void 0;
 var _func_select = require("./func_select");
 
 var _func_show_result = _interopRequireDefault(require("./func_show_result"));
+
+var _validate = require("./validate");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -200,14 +241,16 @@ var apiBaseUrl = 'https://swapi.co/api'; //4 serve form submit
 var searchFormFn = searchForm.addEventListener('submit', function (e) {
   e.preventDefault(); //5
 
-  var searchValue = searchInput.value; //6 
+  var searchValue = searchInput.value; //validation function
+
+  (0, _validate.check)(); //6 
   // https://swapi.co/api/people/?search=r2
 
   var apiURL = "".concat(apiBaseUrl, "/").concat(_func_select.searchOption, "/?search=").concat(searchValue);
   fetch(apiURL).then(function (res) {
     return res.json();
   }).then(function (data) {
-    (0, _func_show_result.default)(_func_select.searchOption, data.results); // console.log(data.results)
+    if (_validate.validateFlag) return (0, _func_show_result.default)(_func_select.searchOption, data.results);
   }).then(function (err) {
     return console.log(err);
   }); //after 1s run this function
@@ -215,7 +258,7 @@ var searchFormFn = searchForm.addEventListener('submit', function (e) {
   setTimeout(_func_select.resetInputValue, 1000);
 });
 exports.searchFormFn = searchFormFn;
-},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js"}],"js/func_select.js":[function(require,module,exports) {
+},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js","./validate":"js/validate.js"}],"js/func_select.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12544,7 +12587,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50652" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58095" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

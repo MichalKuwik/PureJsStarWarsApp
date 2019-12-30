@@ -1,11 +1,12 @@
 import {searchOption} from './func_select';
 import showResult from './func_show_result';
 import {resetInputValue} from './func_select';
-
-
+import {check} from './validate';
+import {validateFlag} from './validate';
 //get DOM
 const searchForm = document.getElementById('search-form');
 export const searchInput = document.querySelector('.input');
+
 
 // 2 api base url
 const apiBaseUrl = 'https://swapi.co/api';
@@ -15,7 +16,8 @@ const apiBaseUrl = 'https://swapi.co/api';
   e.preventDefault();
   //5
   const searchValue = searchInput.value;
-  
+  //validation function
+  check();
   //6 
   // https://swapi.co/api/people/?search=r2
   const apiURL = `${apiBaseUrl}/${searchOption}/?search=${searchValue}`
@@ -23,8 +25,7 @@ const apiBaseUrl = 'https://swapi.co/api';
   fetch(apiURL)
     .then(res => res.json())
     .then(data => {
-      showResult(searchOption,data.results)
-      // console.log(data.results)
+      if(validateFlag) return showResult(searchOption,data.results)
     })
     .then(err => console.log(err))
 

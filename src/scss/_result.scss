@@ -7,6 +7,9 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  &.remove{
+    display: none;
+  }
   & .item{
     width:20vw;
     height: 20vh;
@@ -20,6 +23,7 @@
     background-size: 70%;
     background-repeat: no-repeat;
     animation: animItem 1s ease both;
+   
       & h2,h3,h4 {
         color:$blue_color;
         background:rgba(0,0,0,0.1);
