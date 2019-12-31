@@ -1,5 +1,5 @@
 import {searchInput} from './func_searchForm';
-// import {disapear,apear} from './disaper_apear_functions';
+import {disapear,apear} from './disaper_apear_functions';
 //dom el
 const warning = document.querySelector('.info-walidation');
 
