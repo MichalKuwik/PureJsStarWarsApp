@@ -258,13 +258,6 @@
   background-color: #e4b201;
   transition: 0.4s;
 }
-.search form .input-wrapper .info-walidation {
-  display: block;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #B80F0A;
-}
 .search form .select-div {
   margin-top: 3rem;
   position: relative;
@@ -318,6 +311,13 @@
 .search form .select-div button:hover {
   background: #e4b201;
   color: #000;
+}
+.search form .info-walidation {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #B80F0A;
 }
 
 @media screen and (max-width: 760px) {

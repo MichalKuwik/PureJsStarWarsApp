@@ -190,21 +190,47 @@ exports.apear = apear;
 var _func_show_result = require("./func_show_result");
 
 function disapear() {
-  _func_show_result.resultSection.classList.add('remove');
+  _func_show_result.resultSection.classList.add('remove'); // console.log('remove');
 
-  console.log('remove');
 }
 
 ;
 
 function apear() {
-  _func_show_result.resultSection.classList.remove('remove');
+  _func_show_result.resultSection.classList.remove('remove'); // console.log('removed');
 
-  console.log('removed');
 }
 
 ;
-},{"./func_show_result":"js/func_show_result.js"}],"js/validate.js":[function(require,module,exports) {
+},{"./func_show_result":"js/func_show_result.js"}],"js/changeColorError_fn.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//dom el
+var focus_border = document.querySelector('.focus-border');
+var label = document.querySelector('.label');
+var btnSubmit = document.getElementById('sub-btn');
+var select = document.getElementById('select');
+var options = document.querySelectorAll('#select option');
+
+var changeColorError = function changeColorError(color) {
+  focus_border.style.backgroundColor = "".concat(color);
+  label.style.color = "".concat(color);
+  btnSubmit.style.borderColor = "".concat(color);
+  btnSubmit.style.color = "".concat(color);
+  select.style.borderBottomColor = "".concat(color); // console.log(options);
+
+  options.forEach(function (option) {
+    option.style.backgroundColor = "".concat(color);
+  });
+};
+
+var _default = changeColorError;
+exports.default = _default;
+},{}],"js/validate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -217,11 +243,14 @@ var _func_searchForm = require("./func_searchForm");
 
 var _disaper_apear_functions = require("./disaper_apear_functions");
 
-//dom el
-var warning = document.querySelector('.info-walidation');
-var validateFlag = true; //new walidation
+var _changeColorError_fn = _interopRequireDefault(require("./changeColorError_fn"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//flag
+var validateFlag = true;
 exports.validateFlag = validateFlag;
+var warning = document.querySelector('.info-walidation'); //new walidation
 
 function check() {
   var inputValue = _func_searchForm.searchInput.value.trim();
@@ -232,17 +261,17 @@ function check() {
     messages.push('Proszę wpisać wyraz,literę lub cyfrę!');
     warning.innerHTML = messages;
     exports.validateFlag = validateFlag = false;
+    (0, _changeColorError_fn.default)('red');
     (0, _disaper_apear_functions.disapear)();
-  }
-
-  if (inputValue !== '') {
+  } else if (inputValue !== '') {
     messages.push('');
     warning.innerHTML = messages;
     exports.validateFlag = validateFlag = true;
+    (0, _changeColorError_fn.default)('#e4b201');
     (0, _disaper_apear_functions.apear)();
   }
 }
-},{"./func_searchForm":"js/func_searchForm.js","./disaper_apear_functions":"js/disaper_apear_functions.js"}],"js/func_searchForm.js":[function(require,module,exports) {
+},{"./func_searchForm":"js/func_searchForm.js","./disaper_apear_functions":"js/disaper_apear_functions.js","./changeColorError_fn":"js/changeColorError_fn.js"}],"js/func_searchForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12614,7 +12643,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49732" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50075" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

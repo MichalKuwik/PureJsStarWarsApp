@@ -64,14 +64,6 @@
           transition: 0.4s;
         }
       }
-      & .info-walidation{
-        display: block;
-        text-align: center;
-        // margin-top:0.5rem;
-        font-size:1rem;
-        font-weight: 400;
-        color:$red_color;
-      }
     }
     & .select-div{
       margin-top:3rem;
@@ -126,6 +118,14 @@
           color:$bg_color;
         }
       }
+    }
+    & .info-walidation{
+      display: block;
+      text-align: center;
+      // margin-top:0.5rem;
+      font-size:1rem;
+      font-weight: 400;
+      color:$red_color;
     }
   }
   
