@@ -247,6 +247,7 @@ var _changeColorError_fn = _interopRequireDefault(require("./changeColorError_fn
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import {hideErr,showErr} from './animations';
 //flag
 var validateFlag = true;
 exports.validateFlag = validateFlag;
@@ -261,12 +262,36 @@ function check() {
     messages.push('Proszę wpisać wyraz,literę lub cyfrę!');
     warning.innerHTML = messages;
     exports.validateFlag = validateFlag = false;
+
+    _func_searchForm.searchForm.animate([// keyframes
+    {
+      transform: 'translateX(0%)'
+    }, {
+      transform: 'translateX(-25%) rotate(-5deg)'
+    }, {
+      transform: 'translateX(20%) rotate(3deg)'
+    }, {
+      transform: 'translateX(-15%) rotate(-3deg)'
+    }, {
+      transform: 'translateX(10%) rotate(2deg)'
+    }, {
+      transform: 'translateX(-5%) rotate(-1deg)'
+    }, {
+      transform: 'translateX(0%)'
+    }], {
+      // timing options
+      duration: 1000,
+      iterations: 1
+    }); // hideErr();
+
+
     (0, _changeColorError_fn.default)('red');
     (0, _disaper_apear_functions.disapear)();
   } else if (inputValue !== '') {
     messages.push('');
     warning.innerHTML = messages;
-    exports.validateFlag = validateFlag = true;
+    exports.validateFlag = validateFlag = true; // showErr();
+
     (0, _changeColorError_fn.default)('#e4b201');
     (0, _disaper_apear_functions.apear)();
   }
@@ -277,7 +302,7 @@ function check() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.searchFormFn = exports.searchInput = void 0;
+exports.searchFormFn = exports.searchInput = exports.searchForm = void 0;
 
 var _func_select = require("./func_select");
 
@@ -289,6 +314,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //get DOM
 var searchForm = document.getElementById('search-form');
+exports.searchForm = searchForm;
 var searchInput = document.querySelector('.input'); // 2 api base url
 
 exports.searchInput = searchInput;
@@ -311,7 +337,7 @@ var searchFormFn = searchForm.addEventListener('submit', function (e) {
     return console.log(err);
   }); //after 1s run this function
 
-  setTimeout(_func_select.resetInputValue, 1000);
+  setTimeout(_func_select.resetInputValue, 100);
 });
 exports.searchFormFn = searchFormFn;
 },{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js","./validate":"js/validate.js"}],"js/func_select.js":[function(require,module,exports) {
@@ -12560,10 +12586,13 @@ var input = document.querySelector('.input');
 var label = document.querySelector('.label');
 var select = document.querySelector('.select-div');
 var btn = document.getElementById('sub-btn');
-var tl = new _all.TimelineMax();
+var body = document.body;
+var tl = new _all.TimelineMax(); // const tl1 = new TimelineMax();
 
 function animation() {
-  tl.from(starWars, 1.5, {
+  tl.set(body, {
+    visibility: 'visible'
+  }).from(starWars, 1.5, {
     delay: 1,
     y: '50%',
     opacity: 0,
@@ -12593,7 +12622,13 @@ function animation() {
     delay: 1,
     scaleY: 0
   });
-}
+} // export const hideErr = () => {
+//   tl1.to(robot,0.3,{scaleY:0})
+// }
+// export const showErr = () => {
+//   tl1.to(robot,1.5,{scaleY:1,ease: "elastic.out(1, 0.3)"})
+// }
+
 
 var _default = animation;
 exports.default = _default;
@@ -12643,7 +12678,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50075" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51837" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

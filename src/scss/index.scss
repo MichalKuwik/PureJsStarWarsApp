@@ -8,5 +8,6 @@ body{
   overflow-x: hidden;
   background-color: $bg_color;
   font-family: 'Poppins';
-  min-height: 100vh;
+  min-height: 70vh;
+  visibility: hidden;
 }

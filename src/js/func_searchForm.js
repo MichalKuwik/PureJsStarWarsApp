@@ -4,7 +4,7 @@ import {resetInputValue} from './func_select';
 import {check} from './validate';
 import {validateFlag} from './validate';
 //get DOM
-const searchForm = document.getElementById('search-form');
+export const searchForm = document.getElementById('search-form');
 export const searchInput = document.querySelector('.input');
 
 
@@ -30,5 +30,5 @@ const apiBaseUrl = 'https://swapi.co/api';
     .then(err => console.log(err))
 
     //after 1s run this function
-    setTimeout(resetInputValue,1000);
+    setTimeout(resetInputValue,100);
 });
