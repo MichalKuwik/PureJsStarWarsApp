@@ -1,4 +1,4 @@
-import {selectFunction,searchOption} from './func_select';
+import {selectFunction, searchOption} from './func_select';
 import {searchFormFn} from './func_searchForm';
 import animation from './animations';
 
@@ -10,13 +10,3 @@ searchOption;
 selectFunction();
 //searchFrom function
 searchFormFn;
-
-
-
-  
-
-
-
-
- 
-

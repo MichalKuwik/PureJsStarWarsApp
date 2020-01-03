@@ -194,14 +194,10 @@ function disapear() {
 
 }
 
-;
-
 function apear() {
   _func_show_result.resultSection.classList.remove('remove'); // console.log('removed');
 
 }
-
-;
 },{"./func_show_result":"js/func_show_result.js"}],"js/changeColorError_fn.js":[function(require,module,exports) {
 "use strict";
 
@@ -230,152 +226,7 @@ var changeColorError = function changeColorError(color) {
 
 var _default = changeColorError;
 exports.default = _default;
-},{}],"js/validate.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.check = check;
-exports.validateFlag = void 0;
-
-var _func_searchForm = require("./func_searchForm");
-
-var _disaper_apear_functions = require("./disaper_apear_functions");
-
-var _changeColorError_fn = _interopRequireDefault(require("./changeColorError_fn"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import {hideErr,showErr} from './animations';
-//flag
-var validateFlag = true;
-exports.validateFlag = validateFlag;
-var warning = document.querySelector('.info-walidation'); //new walidation
-
-function check() {
-  var inputValue = _func_searchForm.searchInput.value.trim();
-
-  var messages = [];
-
-  if (inputValue === '' || inputValue === null) {
-    messages.push('Proszę wpisać wyraz,literę lub cyfrę!');
-    warning.innerHTML = messages;
-    exports.validateFlag = validateFlag = false;
-
-    _func_searchForm.searchForm.animate([// keyframes
-    {
-      transform: 'translateX(0%)'
-    }, {
-      transform: 'translateX(-25%) rotate(-5deg)'
-    }, {
-      transform: 'translateX(20%) rotate(3deg)'
-    }, {
-      transform: 'translateX(-15%) rotate(-3deg)'
-    }, {
-      transform: 'translateX(10%) rotate(2deg)'
-    }, {
-      transform: 'translateX(-5%) rotate(-1deg)'
-    }, {
-      transform: 'translateX(0%)'
-    }], {
-      // timing options
-      duration: 1000,
-      iterations: 1
-    }); // hideErr();
-
-
-    (0, _changeColorError_fn.default)('red');
-    (0, _disaper_apear_functions.disapear)();
-  } else if (inputValue !== '') {
-    messages.push('');
-    warning.innerHTML = messages;
-    exports.validateFlag = validateFlag = true; // showErr();
-
-    (0, _changeColorError_fn.default)('#e4b201');
-    (0, _disaper_apear_functions.apear)();
-  }
-}
-},{"./func_searchForm":"js/func_searchForm.js","./disaper_apear_functions":"js/disaper_apear_functions.js","./changeColorError_fn":"js/changeColorError_fn.js"}],"js/func_searchForm.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.searchFormFn = exports.searchInput = exports.searchForm = void 0;
-
-var _func_select = require("./func_select");
-
-var _func_show_result = _interopRequireDefault(require("./func_show_result"));
-
-var _validate = require("./validate");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//get DOM
-var searchForm = document.getElementById('search-form');
-exports.searchForm = searchForm;
-var searchInput = document.querySelector('.input'); // 2 api base url
-
-exports.searchInput = searchInput;
-var apiBaseUrl = 'https://swapi.co/api'; //4 serve form submit
-
-var searchFormFn = searchForm.addEventListener('submit', function (e) {
-  e.preventDefault(); //5
-
-  var searchValue = searchInput.value; //validation function
-
-  (0, _validate.check)(); //6 
-  // https://swapi.co/api/people/?search=r2
-
-  var apiURL = "".concat(apiBaseUrl, "/").concat(_func_select.searchOption, "/?search=").concat(searchValue);
-  fetch(apiURL).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    if (_validate.validateFlag) return (0, _func_show_result.default)(_func_select.searchOption, data.results);
-  }).then(function (err) {
-    return console.log(err);
-  }); //after 1s run this function
-
-  setTimeout(_func_select.resetInputValue, 100);
-});
-exports.searchFormFn = searchFormFn;
-},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js","./validate":"js/validate.js"}],"js/func_select.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.resetInputValue = exports.reverseData = exports.selectFunction = exports.searchOption = void 0;
-
-var _func_searchForm = require("./func_searchForm");
-
-// 2 get value of selectOptionEl
-var searchOption = 'wybierz'; //3 onchange select listener
-
-exports.searchOption = searchOption;
-
-var selectFunction = function selectFunction() {
-  return select.addEventListener('change', function (e) {
-    var selectedCategory = e.target.value;
-    exports.searchOption = searchOption = selectedCategory; // console.log(searchOption)
-  });
-};
-
-exports.selectFunction = selectFunction;
-
-var reverseData = function reverseData(paramData) {
-  return paramData.split('-').reverse().join('-');
-};
-
-exports.reverseData = reverseData;
-
-var resetInputValue = function resetInputValue() {
-  return _func_searchForm.searchInput.value = '';
-};
-
-exports.resetInputValue = resetInputValue;
-},{"./func_searchForm":"js/func_searchForm.js"}],"../node_modules/gsap/gsap-core.js":[function(require,module,exports) {
+},{}],"../node_modules/gsap/gsap-core.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12574,7 +12425,7 @@ exports.default = exports.gsap = gsapWithCSS;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.showErr = exports.hideErr = void 0;
 
 var _all = require("gsap/all");
 
@@ -12587,7 +12438,8 @@ var label = document.querySelector('.label');
 var select = document.querySelector('.select-div');
 var btn = document.getElementById('sub-btn');
 var body = document.body;
-var tl = new _all.TimelineMax(); // const tl1 = new TimelineMax();
+var tl = new _all.TimelineMax();
+var tl1 = new _all.TimelineMax();
 
 function animation() {
   tl.set(body, {
@@ -12599,7 +12451,7 @@ function animation() {
     scale: 3
   }).from(robot, 1, {
     scaleY: 0,
-    ease: "elastic.out(1, 0.3)"
+    ease: 'elastic.out(1, 0.3)'
   }).from(planet, 0.5, {
     scale: 0
   }).staggerFrom(ships, 0.2, {
@@ -12622,17 +12474,173 @@ function animation() {
     delay: 1,
     scaleY: 0
   });
-} // export const hideErr = () => {
-//   tl1.to(robot,0.3,{scaleY:0})
-// }
-// export const showErr = () => {
-//   tl1.to(robot,1.5,{scaleY:1,ease: "elastic.out(1, 0.3)"})
-// }
+}
 
+var hideErr = function hideErr() {
+  tl1.to(robot, 0.3, {
+    scaleY: 0
+  });
+};
 
+exports.hideErr = hideErr;
+
+var showErr = function showErr() {
+  tl1.to(robot, 1.5, {
+    scaleY: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+};
+
+exports.showErr = showErr;
 var _default = animation;
 exports.default = _default;
-},{"gsap/all":"../node_modules/gsap/all.js"}],"js/index.js":[function(require,module,exports) {
+},{"gsap/all":"../node_modules/gsap/all.js"}],"js/validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.check = check;
+exports.validateFlag = void 0;
+
+var _func_searchForm = require("./func_searchForm");
+
+var _disaper_apear_functions = require("./disaper_apear_functions");
+
+var _changeColorError_fn = _interopRequireDefault(require("./changeColorError_fn"));
+
+var _animations = require("./animations");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//flag
+var validateFlag = true;
+exports.validateFlag = validateFlag;
+var warning = document.querySelector('.info-walidation'); //new walidation
+
+function check() {
+  var inputValue = _func_searchForm.searchInput.value.trim();
+
+  var messages = [];
+
+  if (inputValue === '' || inputValue === null) {
+    messages.push('Proszę wpisać wyraz,literę lub cyfrę!');
+    warning.innerHTML = messages;
+    exports.validateFlag = validateFlag = false;
+
+    _func_searchForm.searchForm.animate([// keyframes
+    {
+      transform: 'translateX(0%)'
+    }, {
+      transform: 'translateX(-25%) rotate(-5deg)'
+    }, {
+      transform: 'translateX(20%) rotate(3deg)'
+    }, {
+      transform: 'translateX(-15%) rotate(-3deg)'
+    }, {
+      transform: 'translateX(10%) rotate(2deg)'
+    }, {
+      transform: 'translateX(-5%) rotate(-1deg)'
+    }, {
+      transform: 'translateX(0%)'
+    }], {
+      // timing options
+      duration: 1000,
+      iterations: 1
+    });
+
+    (0, _animations.hideErr)();
+    (0, _changeColorError_fn.default)('red');
+    (0, _disaper_apear_functions.disapear)();
+  } else if (inputValue !== '') {
+    messages.push('');
+    warning.innerHTML = messages;
+    exports.validateFlag = validateFlag = true;
+    (0, _animations.showErr)();
+    (0, _changeColorError_fn.default)('#e4b201');
+    (0, _disaper_apear_functions.apear)();
+  }
+}
+},{"./func_searchForm":"js/func_searchForm.js","./disaper_apear_functions":"js/disaper_apear_functions.js","./changeColorError_fn":"js/changeColorError_fn.js","./animations":"js/animations.js"}],"js/func_searchForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.searchFormFn = exports.searchInput = exports.searchForm = void 0;
+
+var _func_select = require("./func_select");
+
+var _func_show_result = _interopRequireDefault(require("./func_show_result"));
+
+var _validate = require("./validate");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//get DOM
+var searchForm = document.getElementById('search-form');
+exports.searchForm = searchForm;
+var searchInput = document.querySelector('.input'); // 2 api base url
+
+exports.searchInput = searchInput;
+var apiBaseUrl = 'https://swapi.co/api'; //4 serve form submit
+
+var searchFormFn = searchForm.addEventListener('submit', function (e) {
+  e.preventDefault(); //5
+
+  var searchValue = searchInput.value; //validation function
+
+  (0, _validate.check)(); //6
+  // https://swapi.co/api/people/?search=r2
+
+  var apiURL = "".concat(apiBaseUrl, "/").concat(_func_select.searchOption, "/?search=").concat(searchValue);
+  fetch(apiURL).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    if (_validate.validateFlag) return (0, _func_show_result.default)(_func_select.searchOption, data.results);
+  }).then(function (err) {
+    return console.log(err);
+  }); //after 1s run this function
+
+  setTimeout(_func_select.resetInputValue, 100);
+});
+exports.searchFormFn = searchFormFn;
+},{"./func_select":"js/func_select.js","./func_show_result":"js/func_show_result.js","./validate":"js/validate.js"}],"js/func_select.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.resetInputValue = exports.reverseData = exports.selectFunction = exports.searchOption = void 0;
+
+var _func_searchForm = require("./func_searchForm");
+
+// 2 get value of selectOptionEl
+var searchOption = 'wybierz'; //3 onchange select listener
+
+exports.searchOption = searchOption;
+
+var selectFunction = function selectFunction() {
+  return select.addEventListener('change', function (e) {
+    var selectedCategory = e.target.value;
+    exports.searchOption = searchOption = selectedCategory; // console.log(searchOption)
+  });
+};
+
+exports.selectFunction = selectFunction;
+
+var reverseData = function reverseData(paramData) {
+  return paramData.split('-').reverse().join('-');
+};
+
+exports.reverseData = reverseData;
+
+var resetInputValue = function resetInputValue() {
+  return _func_searchForm.searchInput.value = '';
+};
+
+exports.resetInputValue = resetInputValue;
+},{"./func_searchForm":"js/func_searchForm.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _func_select = require("./func_select");
@@ -12678,7 +12686,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51837" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51393" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
