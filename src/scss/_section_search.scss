@@ -128,7 +128,23 @@
       color:$red_color;
     }
   }
-  
+  & .controls-wrapper{
+    margin:2rem auto;
+    position: relative;
+    width:20vw;
+    height: 10vh;
+    background: red;
+    & #volume-slider{
+      position: absolute;
+      top:20%;
+      left:10%;
+    }
+    & #play_stop_btn{
+      position: absolute;
+      top:10%;
+      left:70%;
+    }
+  }
   
 }
 @import './section_search_mobile';

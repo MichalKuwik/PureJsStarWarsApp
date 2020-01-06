@@ -60,14 +60,19 @@
         <button id="sub-btn" type="submit">wyślij</button>
       </div>
     </form>
+
+    <div class="controls-wrapper">
+      <input type="range" name="volume" min="10" max="100" id="volume-slider" value="10" step="1">
+      <button id="play_stop_btn">play</button>
+    </div>
+
   </section>
 
   <div class="result"></div>
 
-  <audio
-  src="./mp3/sound.mp3" autoplay loop>
-  </audio>
-
+  <!-- <audio class="player"
+            src="./mp3/sound.mp3" autoplay loop>
+  </audio> -->
  <script src="js/index.js"></script>
 </body>
 </html>
