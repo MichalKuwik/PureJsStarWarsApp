@@ -9,6 +9,8 @@ const label = document.querySelector('.label');
 const select = document.querySelector('.select-div');
 const btn = document.getElementById('sub-btn');
 const body = document.body;
+// const lines_speaker = document.querySelectorAll('.line');
+// const volume_wrapper = document.querySelector('.controls-wrapper');
 
 const tl = new TimelineMax();
 const tl1 = new TimelineMax();
@@ -67,7 +69,8 @@ function animation() {
 		.from(select, 0.5, {
 			delay: 1,
 			scaleY: 0,
-		});
+		})
+		// .from(volume_wrapper,0.5,{opacity:0})
 }
 
 export const hideErr = () => {
@@ -83,4 +86,7 @@ export const showErr = () => {
 	});
 };
 
+// export const animSpeaker = () => {
+// 	tl1.staggerFrom(lines_speaker,0.5,{opacity:0,repeat: -1, yoyo: true},0.3);
+// }
 export default animation;

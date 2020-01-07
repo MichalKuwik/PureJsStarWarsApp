@@ -12437,7 +12437,9 @@ var input = document.querySelector('.input');
 var label = document.querySelector('.label');
 var select = document.querySelector('.select-div');
 var btn = document.getElementById('sub-btn');
-var body = document.body;
+var body = document.body; // const lines_speaker = document.querySelectorAll('.line');
+// const volume_wrapper = document.querySelector('.controls-wrapper');
+
 var tl = new _all.TimelineMax();
 var tl1 = new _all.TimelineMax();
 
@@ -12473,7 +12475,7 @@ function animation() {
   }).from(select, 0.5, {
     delay: 1,
     scaleY: 0
-  });
+  }); // .from(volume_wrapper,0.5,{opacity:0})
 }
 
 var hideErr = function hideErr() {
@@ -12489,7 +12491,10 @@ var showErr = function showErr() {
     scaleY: 1,
     ease: 'elastic.out(1, 0.3)'
   });
-};
+}; // export const animSpeaker = () => {
+// 	tl1.staggerFrom(lines_speaker,0.5,{opacity:0,repeat: -1, yoyo: true},0.3);
+// }
+
 
 exports.showErr = showErr;
 var _default = animation;
@@ -12640,77 +12645,31 @@ var resetInputValue = function resetInputValue() {
 };
 
 exports.resetInputValue = resetInputValue;
-},{"./func_searchForm":"js/func_searchForm.js"}],"js/index.js":[function(require,module,exports) {
+},{"./func_searchForm":"js/func_searchForm.js"}],"mp3/sound.mp3":[function(require,module,exports) {
+module.exports = "/sound.43d2ccdd.mp3";
+},{}],"img/play-arrow.png":[function(require,module,exports) {
+module.exports = "/play-arrow.2c668b40.png";
+},{}],"img/pause-arrow.png":[function(require,module,exports) {
+module.exports = "/pause-arrow.4a956256.png";
+},{}],"js/music.js":[function(require,module,exports) {
 "use strict";
 
-var _func_select = require("./func_select");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initAudioPlayer = void 0;
 
-var _func_searchForm = require("./func_searchForm");
+var _sound = _interopRequireDefault(require("../mp3/sound.mp3"));
 
-var _animations = _interopRequireDefault(require("./animations"));
+var _playArrow = _interopRequireDefault(require("../img/play-arrow.png"));
+
+var _pauseArrow = _interopRequireDefault(require("../img/pause-arrow.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//first animations
-(0, _animations.default)();
-_func_select.searchOption; //select option function
-
-(0, _func_select.selectFunction)(); //searchFrom function
-
-_func_searchForm.searchFormFn; // var audio, playbtn, mutebtn, seekslider, volumeslider, seeking=false, seekto;
-
-function initAudioPlayer() {
-  // audio = new Audio();
-  // audio.src = "https://www.soundjay.com/free-music/midnight-ride-01a.mp3";
-  // audio.loop = true;
-  // audio.play();
-  // Set object references
-  // playbtn = document.getElementById("playpausebtn");
-  // volumeslider = document.getElementById("volumeslider");
-  // Add Event Handling
-  // playbtn.addEventListener("click",playPause);
-  // mutebtn.addEventListener("click", mute);
-  // seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
-  // seekslider.addEventListener("mousemove", function(event){ seek(event); });
-  // seekslider.addEventListener("mouseup",function(){ seeking=false; });
-  // volumeslider.addEventListener("mousemove", setvolume);
-  // Functions
-  function playPause() {
-    if (audio.paused) {
-      audio.play();
-      playbtn.style.background = "url(https://image.flaticon.com/icons/svg/189/189889.svg) no-repeat";
-    } else {
-      audio.pause();
-      playbtn.style.background = "url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat";
-    }
-  } // function mute(){
-  // 	if(audio.muted){
-  // 	    audio.muted = false;
-  // 	    mutebtn.style.background = "url(https://image.flaticon.com/icons/svg/204/204287.svg) no-repeat";
-  //     } else {
-  // 	    audio.muted = true;
-  // 	    mutebtn.style.background = "url(https://image.flaticon.com/icons/svg/148/148757.svg) no-repeat";
-  //     }
-  // }
-  // function seek(event){
-  //     if(seeking){
-  // 	    seekslider.value = event.clientX - seekslider.offsetLeft;
-  //         seekto = audio.duration * (seekslider.value / 100);
-  //         audio.currentTime = seekto;
-  //     }
-  //   }
-
-
-  function setvolume() {
-    audio.volume = volumeslider.value / 100;
-  }
-}
-
-window.addEventListener("load", initAudioPlayer);
-
-function initializePlayer() {
+var initAudioPlayer = function initAudioPlayer() {
   var audio = new Audio();
-  audio.src = "../mp3/sound.mp3";
+  audio.src = _sound.default;
   audio.loop = true;
   audio.play(); //dom el
 
@@ -12718,19 +12677,57 @@ function initializePlayer() {
   var volumeSlider = document.getElementById('volume-slider'); //event literner
 
   musicBtn.addEventListener('click', play_pause_fn);
-  volumeslider.addEventListener('mousemove', setvolume); //play_pause_fn
+  volumeSlider.addEventListener('mousemove', setvolume);
+
+  var changeImgInBtn = function changeImgInBtn(img) {
+    musicBtn.style.background = "url(".concat(img, ") center center no-repeat");
+    musicBtn.style.backgroundSize = '85%';
+  };
+
+  changeImgInBtn(_playArrow.default); //play_pause_fn
 
   function play_pause_fn() {
     if (audio.paused) {
       audio.play();
-      musicBtn.style.background = "url(https://image.flaticon.com/icons/svg/189/189889.svg) no-repeat";
+      changeImgInBtn(_playArrow.default);
     } else {
       audio.pause();
-      musicBtn.style.background = "url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat";
+      changeImgInBtn(_pauseArrow.default);
+      console.log('end');
     }
   }
-}
-},{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js","./animations":"js/animations.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+  function setvolume() {
+    audio.volume = volumeSlider.value / 100;
+    console.log(volumeSlider.value);
+  }
+};
+
+exports.initAudioPlayer = initAudioPlayer;
+},{"../mp3/sound.mp3":"mp3/sound.mp3","../img/play-arrow.png":"img/play-arrow.png","../img/pause-arrow.png":"img/pause-arrow.png"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _func_select = require("./func_select");
+
+var _func_searchForm = require("./func_searchForm");
+
+var _animations = _interopRequireWildcard(require("./animations"));
+
+var _music = require("./music");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+//first animations
+(0, _animations.default)();
+_func_select.searchOption; //select option function
+
+(0, _func_select.selectFunction)(); //searchFrom function
+
+_func_searchForm.searchFormFn;
+(0, _music.initAudioPlayer)(); // animSpeaker();
+},{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js","./animations":"js/animations.js","./music":"js/music.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12758,7 +12755,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49716" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55435" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
