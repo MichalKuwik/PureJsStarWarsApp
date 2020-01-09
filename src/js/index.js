@@ -1,7 +1,7 @@
 import {selectFunction, searchOption} from './func_select';
 import {searchFormFn} from './func_searchForm';
 import animation, { animSpeaker } from './animations';
-import {initAudioPlayer} from './music';
+import {initAudioPlayer,newObj} from './music';
 
 //first animations
 animation();
@@ -14,7 +14,8 @@ searchFormFn;
 
 initAudioPlayer();
 
-// animSpeaker();
+//animate sound speaker
+animSpeaker();
 
 
 

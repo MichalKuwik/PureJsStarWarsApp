@@ -12425,7 +12425,7 @@ exports.default = exports.gsap = gsapWithCSS;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.showErr = exports.hideErr = void 0;
+exports.default = exports.animSpeaker = exports.showErr = exports.hideErr = exports.lines_speaker = void 0;
 
 var _all = require("gsap/all");
 
@@ -12437,9 +12437,10 @@ var input = document.querySelector('.input');
 var label = document.querySelector('.label');
 var select = document.querySelector('.select-div');
 var btn = document.getElementById('sub-btn');
-var body = document.body; // const lines_speaker = document.querySelectorAll('.line');
-// const volume_wrapper = document.querySelector('.controls-wrapper');
-
+var body = document.body;
+var lines_speaker = document.querySelectorAll('.line');
+exports.lines_speaker = lines_speaker;
+var volume_wrapper = document.querySelector('.controls-wrapper');
 var tl = new _all.TimelineMax();
 var tl1 = new _all.TimelineMax();
 
@@ -12475,7 +12476,9 @@ function animation() {
   }).from(select, 0.5, {
     delay: 1,
     scaleY: 0
-  }); // .from(volume_wrapper,0.5,{opacity:0})
+  }).from(volume_wrapper, 0.5, {
+    opacity: 0
+  });
 }
 
 var hideErr = function hideErr() {
@@ -12491,12 +12494,19 @@ var showErr = function showErr() {
     scaleY: 1,
     ease: 'elastic.out(1, 0.3)'
   });
-}; // export const animSpeaker = () => {
-// 	tl1.staggerFrom(lines_speaker,0.5,{opacity:0,repeat: -1, yoyo: true},0.3);
-// }
-
+};
 
 exports.showErr = showErr;
+
+var animSpeaker = function animSpeaker(value) {
+  tl1.staggerFrom(lines_speaker, 0.5, {
+    opacity: 0,
+    repeat: '-1',
+    yoyo: true
+  }, 0.3);
+};
+
+exports.animSpeaker = animSpeaker;
 var _default = animation;
 exports.default = _default;
 },{"gsap/all":"../node_modules/gsap/all.js"}],"js/validate.js":[function(require,module,exports) {
@@ -12667,6 +12677,12 @@ var _pauseArrow = _interopRequireDefault(require("../img/pause-arrow.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// const volueLevel = document.querySelector('.volume-level');
+// const mutedSvg = document.getElementById('muted');
+// const svg = document.getElementById('svg');
+// mutedSvg.style.display = "none";
+// mutedSvg.style.width = "30px";
+// mutedSvg.style.height = "30px";
 var initAudioPlayer = function initAudioPlayer() {
   var audio = new Audio();
   audio.src = _sound.default;
@@ -12689,17 +12705,21 @@ var initAudioPlayer = function initAudioPlayer() {
   function play_pause_fn() {
     if (audio.paused) {
       audio.play();
-      changeImgInBtn(_playArrow.default);
+      changeImgInBtn(_playArrow.default); // mutedSvg.style.display = 'none'
+      // svg.style.display = 'block';
     } else {
       audio.pause();
-      changeImgInBtn(_pauseArrow.default);
+      changeImgInBtn(_pauseArrow.default); // mutedSvg.style.display = 'block'
+      // svg.style.display = 'none';
+
       console.log('end');
     }
   }
 
   function setvolume() {
     audio.volume = volumeSlider.value / 100;
-    console.log(volumeSlider.value);
+    console.log(volumeSlider.value); //A volueLevel.textContent = volumeSlider.value;
+    //A volueLevel.style.color = 'red';
   }
 };
 
@@ -12726,7 +12746,9 @@ _func_select.searchOption; //select option function
 (0, _func_select.selectFunction)(); //searchFrom function
 
 _func_searchForm.searchFormFn;
-(0, _music.initAudioPlayer)(); // animSpeaker();
+(0, _music.initAudioPlayer)(); //animate sound speaker
+
+(0, _animations.animSpeaker)();
 },{"./func_select":"js/func_select.js","./func_searchForm":"js/func_searchForm.js","./animations":"js/animations.js","./music":"js/music.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -12755,7 +12777,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55435" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56621" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
