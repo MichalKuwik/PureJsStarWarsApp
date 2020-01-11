@@ -3,6 +3,7 @@ import { disapear, apear } from './disaper_apear_functions';
 import changeColorError from './changeColorError_fn';
 import { searchForm } from './func_searchForm';
 import { hideErr, showErr } from './animations';
+import {red,yellow} from './globalStyles';
 //flag
 export let validateFlag = true;
 
@@ -49,14 +50,14 @@ export function check() {
 			},
 		);
 		hideErr();
-		changeColorError('red');
+		changeColorError(`${red}`);
 		disapear();
 	} else if (inputValue !== '') {
 		messages.push('');
 		warning.innerHTML = messages;
 		validateFlag = true;
 		showErr();
-		changeColorError('#e4b201');
+		changeColorError(`${yellow}`);
 		apear();
 	}
 }

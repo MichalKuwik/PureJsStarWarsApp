@@ -1,19 +1,26 @@
 import startWarsmp3 from '../mp3/sound.mp3';
 import play_arrow from '../img/play-arrow.png';
 import pause_arrow from '../img/pause-arrow.png';
+import {blue} from './globalStyles';
 
-const volueLevel = document.querySelector('.volume-level');
+//Dom elements
+const volumeLevel = document.querySelector('.volume-level');
 const mutedSvg = document.getElementById('muted');
 const svg = document.getElementById('svg');
-mutedSvg.style.display = "none";
-mutedSvg.style.width = "30px";
-mutedSvg.style.height = "30px";
+
+
 
 export const initAudioPlayer = () => {
   const audio = new Audio();
   audio.src= startWarsmp3;
   audio.loop = true;
   audio.play();
+
+  //mutted sound's icon styles
+  const mutedStyleObj = mutedSvg.style;
+  mutedStyleObj.display = "none";
+  mutedStyleObj.width = "30px";
+  mutedSvg.style.height = "30px";
   
   //dom el
   const musicBtn = document.getElementById('play_stop_btn');
@@ -24,8 +31,9 @@ export const initAudioPlayer = () => {
   volumeSlider.addEventListener('mousemove', setvolume);
 
   const changeImgInBtn = (img) => {
-    musicBtn.style.background = `url(${img}) center center no-repeat`;
-    musicBtn.style.backgroundSize = '85%';
+    const musicStyleObj = musicBtn.style;
+    musicStyleObj.background = `url(${img}) center center no-repeat`;
+    musicStyleObj.backgroundSize = '85%';
   }
 
   changeImgInBtn(play_arrow)
@@ -37,19 +45,21 @@ export const initAudioPlayer = () => {
       changeImgInBtn(play_arrow);
       mutedSvg.style.display = 'none';
       svg.style.display = 'block';
+      volumeLevel.textContent = volumeSlider.value;
     } else {
       audio.pause();
       changeImgInBtn(pause_arrow);
       mutedSvg.style.display = 'block'
       svg.style.display = 'none';
-      console.log('end')
+      volumeLevel.textContent = 'pauza';
+      // console.log('end')
     }
   }
   function setvolume(){
     audio.volume = volumeSlider.value / 100;
     console.log(volumeSlider.value);
-    volueLevel.textContent = volumeSlider.value;
-    volueLevel.style.color = 'red';
+    volumeLevel.textContent = volumeSlider.value;
+    volumeLevel.style.color = blue;
   }
 }
 
