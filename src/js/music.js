@@ -19,8 +19,8 @@ export const initAudioPlayer = () => {
   //mutted sound's icon styles
   const mutedStyleObj = mutedSvg.style;
   mutedStyleObj.display = "none";
-  mutedStyleObj.width = "30px";
-  mutedSvg.style.height = "30px";
+  mutedStyleObj.width = "40px";
+  mutedSvg.style.height = "40px";
   
   //dom el
   const musicBtn = document.getElementById('play_stop_btn');
