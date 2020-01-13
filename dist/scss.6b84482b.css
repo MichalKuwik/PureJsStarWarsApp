@@ -462,6 +462,7 @@
 }
 body {
   background-image: url("/1.dc197a9a.jpg");
+  overflow-x: hidden;
 }
 
 /*# sourceMappingURL=/scss.6b84482b.css.map */
