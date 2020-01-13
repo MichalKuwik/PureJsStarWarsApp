@@ -1,10 +1,11 @@
 import '../scss/index';
 import bgImg from '../img/1.jpg';
 
+const body = document.body;
+const bStyle = body.style;
+
 export const initGlobalStyles = () => {
-  //dom el
-  const body = document.body;
-  const bStyle = body.style;
+  
   bStyle.backgroundImage = `url(${bgImg})`;
   bStyle.overflowX = 'hidden';
   bStyle.backgroundColor = '#000';
