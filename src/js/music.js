@@ -14,13 +14,16 @@ export const initAudioPlayer = () => {
   const audio = new Audio();
   audio.src= startWarsmp3;
   audio.loop = true;
-  audio.play();
+  // audio.play();
 
   //mutted sound's icon styles
   const mutedStyleObj = mutedSvg.style;
   mutedStyleObj.display = "none";
   mutedStyleObj.width = "40px";
   mutedSvg.style.height = "40px";
+
+  // svg.style.width = "40px";
+  // svg.style.height = "40px";
   
   //dom el
   const musicBtn = document.getElementById('play_stop_btn');
