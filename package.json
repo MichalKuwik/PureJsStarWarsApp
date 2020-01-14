@@ -13,7 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "dev": "parcel src/index.html",
-    "deploy": "gh-pages -d build/output",
+    "deploy": "gh-pages -d dist",
     "build": "parcel build src/index.html -d build/output"
   },
   "repository": {
