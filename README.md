@@ -8,13 +8,13 @@
  
      -html,
      
-     -css/scss,
+     -scss,
      
      -pure javaScript
      
      -module bundler - Parcel.js,
      
-     -Using SWAPI api to fetch data,
+     -SWAPI api to fetch data to for my project,
      
      -librarys: TweenMax
      
@@ -26,7 +26,7 @@
      
      -adobe photoshop,
      
-     -vectors svg icons using app InkScape,
+     -InkScape for draw simple vectors icons
      
      
                   --> If you doawnload,or clone repository:
