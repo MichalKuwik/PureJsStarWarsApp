@@ -14,7 +14,7 @@ export const initAudioPlayer = () => {
   const audio = new Audio();
   audio.src= startWarsmp3;
   audio.loop = true;
-  // audio.play();
+  audio.play();
 
   //mutted sound's icon styles
   const mutedStyleObj = mutedSvg.style;

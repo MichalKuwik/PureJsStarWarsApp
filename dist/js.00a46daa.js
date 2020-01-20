@@ -12812,8 +12812,8 @@ var svg = document.getElementById('svg');
 var initAudioPlayer = function initAudioPlayer() {
   var audio = new Audio();
   audio.src = _sound.default;
-  audio.loop = true; // audio.play();
-  //mutted sound's icon styles
+  audio.loop = true;
+  audio.play(); //mutted sound's icon styles
 
   var mutedStyleObj = mutedSvg.style;
   mutedStyleObj.display = "none";
@@ -12919,7 +12919,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56648" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49361" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
